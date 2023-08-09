@@ -3,7 +3,7 @@ import receipts from "./receipts.json";
 
 export default function RecipeList() {
   return (
-    <div>
+    <div className={styles["recipe-container"]}>
       {receipts.map((recipe) => (
         <div key={recipe.id} className={styles["recipe-card"]}>
           <h2 className={styles.title}>{recipe.title}</h2>
