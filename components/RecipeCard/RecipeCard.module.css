@@ -1,0 +1,23 @@
+.product-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  gap: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.product-card {
+  width: 200px;
+  border: 1px solid #36966b;
+  padding: 2rem;
+  background-color: #d74141;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 1px solid blue;
+  font-size: 0.9rem;
+}
+
+.title {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
