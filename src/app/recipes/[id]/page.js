@@ -1,22 +1,14 @@
-import receipts from "../receipts.json";
+"use client";
 
-export default function RecipeCard() {
-  const currentRecipe = receipts.find((recipe) => recipe.id === id);
-  console.log(currentRecipe);
+import recipes from "../recipes.json";
+import Link from "next/link";
+import RecipeCard from "../../../../components/RecipeCard";
+import { useSearchParams } from "next/navigation";
 
-  if (!currentRecipe) {
-    return null;
-  }
+console.log("recipes title:", recipes[0].title);
+console.log("Recipes:", recipes);
 
-  const { title } = currentRecipe;
-
-  return (
-    <div>
-      {setsData.map(({ id, title }) => (
-        <div key={id}>
-          <h2>{title}</h2>
-        </div>
-      ))}
-    </div>
-  );
+export default function RecipePage({ params }) {
+  console.log("ID:", params.id);
+  return <RecipeCard id={params.id} />;
 }
