@@ -4,7 +4,6 @@ import styles from "./RecipeCard.module.css";
 
 export default function RecipeCard({ id }) {
   const product = recipes.find((food) => food.id === parseInt(id));
-  //console.log("Chosen Product is:", product);
   return (
     <>
       <div className={styles["product-container"]}>

@@ -1,6 +1,10 @@
+"use client";
+
 import styles from "./RecipeList.module.css";
 import recipes from "./recipes.json";
 import Link from "next/link";
+import RandomMeal from "../../../components/RandomMeal";
+import useSWR from "swr";
 
 export default function RecipeList() {
   return (
@@ -13,6 +17,7 @@ export default function RecipeList() {
         </div>
       ))}
       <Link href="/">Go home</Link>
+      <RandomMeal />
     </div>
   );
 }
