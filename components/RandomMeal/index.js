@@ -15,7 +15,7 @@ export default function RandomMeal() {
     return <div>Loading...</div>;
   }
 
-  console.log("Data:", data.meals[0]);
+  // console.log("Data:", data.meals[0]);
   if (data) {
     const { meals } = data;
     const randomMeal = meals[0];

@@ -1,16 +1,13 @@
-"use client";
-
 import styles from "./RecipeList.module.css";
 import Link from "next/link";
 import RandomMeal from "../../../components/RandomMeal";
+import RecipeCard from "../../../components/RecipeCard";
 
-export default function RecipeList() {
+export default async function RecipeList() {
   return (
     <>
       <Link href="/">Go Home</Link>
-      <div className={styles["recipe-container"]}>
-        <div className={styles["recipe-card"]}>{/* <RandomMeal /> */}</div>
-      </div>
+      <RecipeCard />
     </>
   );
 }

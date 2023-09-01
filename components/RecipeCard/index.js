@@ -1,18 +1,35 @@
-import recipes from "../../src/app/recipes/recipes.json";
-import Link from "next/link";
-import styles from "./RecipeCard.module.css";
+"use client";
 
-export default function RecipeCard({ id }) {
-  const product = recipes.find((food) => food.id === parseInt(id));
+import styles from "./RecipeCard.module.css";
+import useSWR from "swr";
+
+const fetcher = (...args) => fetch(...args).then((res) => res.json());
+
+export default function RecipeCard() {
+  const { data, error, isLoading } = useSWR("/api/recipes", fetcher);
+  if (data) {
+    console.log("Data received:", data);
+  }
+  if (error) {
+    console.log(error);
+  }
+  if (isLoading) {
+    console.log("Loading");
+  }
+
   return (
     <>
       <div className={styles["product-container"]}>
-        <h2>{product.title}</h2>
-        <section className={styles["product-card"]}>
-          Calories: {product.kcal} kcal
-        </section>
+        {data ? (
+          <ul>
+            {data.map((meal) => (
+              <li key={meal.idMeal}>{meal.strMeal}</li>
+            ))}
+          </ul>
+        ) : (
+          <div>loading..</div>
+        )}
       </div>
-      <Link href="/recipes">Go back</Link>
     </>
   );
 }
