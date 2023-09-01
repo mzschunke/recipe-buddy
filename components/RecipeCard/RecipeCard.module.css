@@ -3,21 +3,24 @@
   flex-direction: column;
   align-items: center;
   padding: 1rem;
-  gap: 0.5rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+.product-list {
+  list-style: none;
+}
+
 .product-card {
-  width: 200px;
-  border: 1px solid #36966b;
-  padding: 2rem;
+  border: 2px solid black;
+  padding: 1.5rem;
   background-color: #a5daf0;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  border: 1px solid blue;
-  font-size: 0.9rem;
+  display: grid;
+  margin-bottom: 0.5rem;
 }
 
 .title {
   font-size: 1.2rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
+  margin-top: 0;
+  justify-self: center;
 }
