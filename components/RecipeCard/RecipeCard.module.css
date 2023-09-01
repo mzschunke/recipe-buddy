@@ -13,9 +13,10 @@
 .product-card {
   border: 2px solid black;
   padding: 1.5rem;
-  background-color: #a5daf0;
+  background-color: rgb(255, 255, 255, 0.5);
   display: grid;
   margin-bottom: 0.5rem;
+  border-radius: 8px;
 }
 
 .title {
@@ -23,4 +24,5 @@
   margin-bottom: 1rem;
   margin-top: 0;
   justify-self: center;
+  text-decoration: underline;
 }

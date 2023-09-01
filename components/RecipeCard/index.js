@@ -16,17 +16,18 @@ export default function RecipeCard() {
         {data ? (
           <ul className={styles["product-list"]}>
             {data.map((meal) => (
-              <li key={meal.idMeal} className={styles["product-card"]}>
-                <h2 className={styles["title"]}>{meal.strMeal}</h2>
-                <Image
-                  src={meal.strMealThumb}
-                  width={200}
-                  height={200}
-                  style={{ objectFit: "contain" }}
-                  alt={meal.strMeal}
-                />
-                <Link href={`/recipes/${meal.idMeal}`}>{meal.idMeal}</Link>
-              </li>
+              <Link href={`/recipes/${meal.idMeal}`}>
+                <li key={meal.idMeal} className={styles["product-card"]}>
+                  <h2 className={styles["title"]}>{meal.strMeal}</h2>
+                  <Image
+                    src={meal.strMealThumb}
+                    width={200}
+                    height={200}
+                    style={{ objectFit: "contain" }}
+                    alt={meal.strMeal}
+                  />
+                </li>
+              </Link>
             ))}
           </ul>
         ) : (

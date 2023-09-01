@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import useSWR from "swr";
 import { useState, useEffect } from "react";
+import Image from "next/image";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
@@ -23,7 +24,27 @@ export default function RecipePage() {
 
   return (
     <div className={styles["recipe-container"]}>
-      <p>{currentRecipe ? currentRecipe.strMeal : "Meal not found"}</p>
+      {currentRecipe ? (
+        <div className={styles["recipe-card"]}>
+          <h2 className={styles["title"]}>{currentRecipe.strMeal}</h2>
+          <Image
+            src={currentRecipe.strMealThumb}
+            width={200}
+            height={200}
+            style={{ objectFit: "contain" }}
+            alt={currentRecipe.strMeal}
+          />
+          <dl className={styles["description-list"]}>
+            <dt>Description: </dt>
+            <dd>{currentRecipe.strCategory}</dd>
+            <dt>Area:</dt>
+            <dd>{currentRecipe.strArea}</dd>
+          </dl>
+          Ingredients coming soon...
+        </div>
+      ) : (
+        "Meal not found"
+      )}
       <Link href={"/recipes"}>Go back</Link>
     </div>
   );
