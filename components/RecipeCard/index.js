@@ -3,20 +3,12 @@
 import styles from "./RecipeCard.module.css";
 import useSWR from "swr";
 import Image from "next/image";
+import Link from "next/link";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 export default function RecipeCard() {
-  const { data, error, isLoading } = useSWR("/api/recipes", fetcher);
-  if (data) {
-    console.log("Data received:", data);
-  }
-  if (error) {
-    console.log(error);
-  }
-  if (isLoading) {
-    console.log("Loading");
-  }
+  const { data } = useSWR("/api/recipes", fetcher);
 
   return (
     <>
@@ -33,6 +25,7 @@ export default function RecipeCard() {
                   style={{ objectFit: "contain" }}
                   alt={meal.strMeal}
                 />
+                <Link href={`/recipes/${meal.idMeal}`}>{meal.idMeal}</Link>
               </li>
             ))}
           </ul>
