@@ -16,8 +16,8 @@ export default function RecipeCard() {
         {data ? (
           <ul className={styles["product-list"]}>
             {data.map((meal) => (
-              <Link href={`/recipes/${meal.idMeal}`}>
-                <li key={meal.idMeal} className={styles["product-card"]}>
+              <Link key={meal.idMeal} href={`/recipes/${meal.idMeal}`}>
+                <li className={styles["product-card"]}>
                   <h2 className={styles["title"]}>{meal.strMeal}</h2>
                   <Image
                     src={meal.strMealThumb}
