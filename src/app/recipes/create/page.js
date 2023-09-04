@@ -27,7 +27,7 @@ export default function CreateRecipe() {
   }
   return (
     <>
-      <h2>Add Recipe:</h2>
+      <h2 className={styles["title"]}>Add Recipe:</h2>
       <a href="/recipes" className={styles["back-button"]}>
         Go back
       </a>

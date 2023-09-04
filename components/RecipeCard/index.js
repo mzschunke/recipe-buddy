@@ -19,13 +19,13 @@ export default function RecipeCard() {
               <Link key={meal.idMeal} href={`/recipes/${meal.idMeal}`}>
                 <li className={styles["product-card"]}>
                   <h2 className={styles["title"]}>{meal.strMeal}</h2>
-                  <Image
+                  {/* <Image
                     src={meal.strMealThumb}
                     width={200}
                     height={200}
                     style={{ objectFit: "contain" }}
                     alt={meal.strMeal}
-                  />
+                  /> */}
                 </li>
               </Link>
             ))}

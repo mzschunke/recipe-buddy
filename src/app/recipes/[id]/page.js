@@ -19,6 +19,7 @@ export default function RecipePage() {
     if (data) {
       const foundRecipe = data.find((recipe) => recipe.idMeal === pathID);
       setCurrentRecipe(foundRecipe);
+      console.log("Data:", data);
     }
   }, [data, pathID]);
 
@@ -46,6 +47,9 @@ export default function RecipePage() {
         "Meal not found"
       )}
       <Link href={"/recipes"}>Go back</Link>
+      <Link href={`/recipes/${pathID}/edit`} passHref legacyBehavior>
+        Edit
+      </Link>
     </div>
   );
 }

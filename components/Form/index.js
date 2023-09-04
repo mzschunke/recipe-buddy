@@ -1,13 +1,33 @@
 "use client";
 
 import styles from "./Form.module.css";
+import useSWR from "swr";
+import useSWRMutation from "swr/mutation";
+import { useRouter } from "next/navigation";
+
+async function sendRequest(url, { arg }) {
+  const response = await fetch(url, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(arg),
+  });
+  const { status } = await response.json();
+  console.log("Status:", status);
+}
 
 export default function Form({ onSubmit, formName, defaultData }) {
-  function handleSubmit(event) {
+  const { trigger } = useSWRMutation("/api/recipes", sendRequest);
+  const router = useRouter();
+
+  async function handleSubmit(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData);
-    onSubmit(data);
+    await trigger(data);
+    console.log("Recipe added: ", data);
+    router.push("/recipes");
   }
 
   return (
@@ -21,9 +41,9 @@ export default function Form({ onSubmit, formName, defaultData }) {
       </label>
       <input
         id="name"
-        name="name"
+        name="strMeal"
         type="text"
-        defaultValue={defaultData?.name}
+        defaultValue={defaultData?.strMeal}
         className={styles["input"]}
       />
       <label htmlFor="category" className={styles["label"]}>
@@ -31,9 +51,9 @@ export default function Form({ onSubmit, formName, defaultData }) {
       </label>
       <input
         id="category"
-        name="category"
+        name="strCategory"
         type="text"
-        defaultValue={defaultData?.category}
+        defaultValue={defaultData?.strCategory}
         className={styles["input"]}
       />
       <label htmlFor="area" className={styles["label"]}>
@@ -41,9 +61,9 @@ export default function Form({ onSubmit, formName, defaultData }) {
       </label>
       <input
         id="area"
-        name="area"
+        name="strArea"
         type="text"
-        defaultValue={defaultData?.area}
+        defaultValue={defaultData?.strArea}
         className={styles["input"]}
       />
       <label htmlFor="image-url" className={styles["label"]}>
@@ -51,9 +71,9 @@ export default function Form({ onSubmit, formName, defaultData }) {
       </label>
       <input
         id="image-url"
-        name="image"
+        name="strMealThumb"
         type="text"
-        defaultValue={defaultData?.image}
+        defaultValue={defaultData?.strMealThumb}
         className={styles["input"]}
       />
 
@@ -61,11 +81,11 @@ export default function Form({ onSubmit, formName, defaultData }) {
         Instructions
       </label>
       <textarea
-        name="instructions"
+        name="strInstructions"
         id="instructions"
         cols="30"
         rows="10"
-        defaultValue={defaultData?.instructions}
+        defaultValue={defaultData?.strInstructions}
         className={styles["textarea"]}
       ></textarea>
       <button type="submit" className={styles["button"]}>

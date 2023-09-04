@@ -1,5 +1,5 @@
-import dbConnect from "../../../db/connect";
-import Recipes from "../../../../db/models/Recipes";
+import dbConnect from "../../../../../db/connect";
+import Recipes from "../../../../../db/models/Recipes";
 
 export default async function handler(request, response) {
   await dbConnect();
@@ -7,6 +7,7 @@ export default async function handler(request, response) {
 
   if (request.method === "GET") {
     const recipe = await Recipes.findById(id);
+    console.log("ID:", id);
 
     if (!recipe) {
       return response.status(404).json({ status: "Not Found" });
@@ -24,21 +25,25 @@ export default async function handler(request, response) {
     }
   }
 
-  if (request.method === "PUT") {
-    Recipes.findByIdAndUpdate(id, {
-      $set: request.body,
-    });
-    response.status(200).JSON({ status: `Recipe ${id} updated` });
-  }
-  if (request.method === "DELETE") {
+  if (request.method === "PATCH") {
     try {
-      await Recipes.findByIdAndDelete(id);
-      response
-        .status(200)
-        .json({ status: `Recipe ${id} successfully deleted.` });
+      Recipes.findByIdAndUpdate(id, {
+        $set: request.body,
+      });
+      response.status(200).JSON({ status: `Recipe ${id} updated` });
     } catch (error) {
       console.log(error);
       response.status(400).json({ error: error.message });
     }
+  }
+}
+
+if (request.method === "DELETE") {
+  try {
+    await Recipes.findByIdAndDelete(id);
+    response.status(200).json({ status: `Recipe ${id} successfully deleted.` });
+  } catch (error) {
+    console.log(error);
+    response.status(400).json({ error: error.message });
   }
 }
