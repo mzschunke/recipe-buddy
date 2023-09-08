@@ -1,11 +1,9 @@
 import dbConnect from "../../../../db/connect";
 import Recipes from "../../../../db/models/Recipes";
 
-// import NextResponse
-export async function GET(request) {
+await dbConnect();
+export async function GET(req) {
   try {
-    await dbConnect();
-
     const recipes = await Recipes.find();
 
     return new Response(JSON.stringify(recipes), {
@@ -33,7 +31,6 @@ export async function GET(request) {
 }
 
 export async function POST(request) {
-  await dbConnect();
   try {
     const recipeData = await request.json();
     await Recipes.create(recipeData);

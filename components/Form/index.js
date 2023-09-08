@@ -17,7 +17,7 @@ async function sendRequest(url, { arg }) {
   console.log("Status:", status);
 }
 
-export default function Form({ onSubmit, formName, defaultData }) {
+export default function Form({ formName, defaultData }) {
   const { trigger } = useSWRMutation("/api/recipes", sendRequest);
   const router = useRouter();
 
@@ -26,7 +26,6 @@ export default function Form({ onSubmit, formName, defaultData }) {
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData);
     await trigger(data);
-    console.log("Recipe added: ", data);
     router.push("/recipes");
   }
 

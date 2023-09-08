@@ -16,7 +16,7 @@ export default function RecipeCard() {
         {data ? (
           <ul className={styles["product-list"]}>
             {data.map((meal) => (
-              <Link key={meal.idMeal} href={`/recipes/${meal.idMeal}`}>
+              <Link key={meal.idMeal} href={`/recipes/${meal._id}`}>
                 <li className={styles["product-card"]}>
                   <h2 className={styles["title"]}>{meal.strMeal}</h2>
                   {/* <Image

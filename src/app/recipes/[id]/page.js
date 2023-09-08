@@ -2,26 +2,42 @@
 
 import styles from "../RecipeList.module.css";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { useRouter } from "next/navigation";
 import useSWR from "swr";
 import { useState, useEffect } from "react";
 import Image from "next/image";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
-export default function RecipePage() {
+export default function RecipePage({ params }) {
   const { data } = useSWR("/api/recipes", fetcher);
-  const pathname = usePathname();
-  const pathID = pathname.match(/\d/g).join("");
   const [currentRecipe, setCurrentRecipe] = useState(null);
+  const router = useRouter();
+  const id = params.id;
 
   useEffect(() => {
     if (data) {
-      const foundRecipe = data.find((recipe) => recipe.idMeal === pathID);
+      const foundRecipe = data.find((recipe) => recipe._id === id);
       setCurrentRecipe(foundRecipe);
       console.log("Data:", data);
+      console.log("Params.id (API):", id);
     }
-  }, [data, pathID]);
+  }, [data, id]);
+
+  async function deleteRecipe() {
+    await fetch(`/api/recipes/${id}`, { method: "DELETE" })
+      .then((response) => {
+        if (response.ok) {
+          router.push("/recipes");
+          console.log("Recipe deleted.");
+        } else {
+          console.error("Failed to delete recipe.");
+        }
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  }
 
   return (
     <div className={styles["recipe-container"]}>
@@ -47,9 +63,12 @@ export default function RecipePage() {
         "Meal not found"
       )}
       <Link href={"/recipes"}>Go back</Link>
-      <Link href={`/recipes/${pathID}/edit`} passHref legacyBehavior>
+      <Link href={`/recipes/${id}/edit`} passHref legacyBehavior>
         Edit
       </Link>
+      <button onClick={deleteRecipe} type="button">
+        Delete recipe
+      </button>
     </div>
   );
 }
