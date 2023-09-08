@@ -1,31 +1,30 @@
 "use client";
 
-import { useRouter } from "next/navigation";
+import {} from "next/navigation";
 import Link from "next/link";
 import useSWR from "swr";
 import Form from "../../../../../components/Form";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
-export default function EditPage() {
+export default function EditPage({ params }) {
   const router = useRouter();
-  const pathname = usePathname();
-  const pathID = pathname.match(/\d/g).join("");
+  const id = params.id;
   const { data, isLoading, error } = useSWR(`/api/recipes/`, fetcher);
   const [newRecipe, setNewRecipe] = useState(null);
 
   useEffect(() => {
     if (data) {
-      const recipe = data.find((recipe) => recipe.idMeal === pathID);
+      const recipe = data.find((recipe) => recipe._id === id);
       setNewRecipe(recipe);
     }
-  }, [data, pathID]);
+  }, [data, id]);
 
   async function editRecipe(data) {
     try {
-      const response = await fetch(`/api/recipes/${pathID}`, {
+      const response = await fetch(`/api/recipes/${id}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
@@ -38,7 +37,7 @@ export default function EditPage() {
       }
 
       console.log("Recipe edited successfully!");
-      router.push(`/recipes/${pathID}`);
+      router.push(`/recipes/${id}`);
     } catch (error) {
       console.error(error);
     }
@@ -49,9 +48,7 @@ export default function EditPage() {
   return (
     <>
       <h2 id="edit-recipe">Edit Recipe</h2>
-      <Link href={`/recipes/${pathID}`} passHref legacyBehavior>
-        back
-      </Link>
+
       {newRecipe && (
         <Form
           onSubmit={editRecipe}
@@ -59,6 +56,9 @@ export default function EditPage() {
           defaultData={newRecipe}
         />
       )}
+      <Link href={`/recipes/${id}`} passHref legacyBehavior>
+        back
+      </Link>
     </>
   );
 }

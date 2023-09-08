@@ -1,7 +1,6 @@
 "use client";
 
 import styles from "./Form.module.css";
-import useSWR from "swr";
 import useSWRMutation from "swr/mutation";
 import { useRouter } from "next/navigation";
 
@@ -17,7 +16,7 @@ async function sendRequest(url, { arg }) {
   console.log("Status:", status);
 }
 
-export default function Form({ formName, defaultData }) {
+export default function Form({ onSubmit, formName, defaultData }) {
   const { trigger } = useSWRMutation("/api/recipes", sendRequest);
   const router = useRouter();
 
