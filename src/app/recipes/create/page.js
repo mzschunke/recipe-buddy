@@ -13,7 +13,6 @@ async function sendRequest(url, { arg }) {
     },
     body: JSON.stringify(arg),
   });
-
   const data = await response.json();
   return data;
 }
@@ -31,7 +30,7 @@ export default function CreateRecipe() {
       <a href="/recipes" className={styles["back-button"]}>
         Go back
       </a>
-      <Form onSubmit={addRecipe} formName={"add-recipe"} />
+      <Form onSubmit={addRecipe} formName={"add-recipe"} requestType="POST" />
     </>
   );
 }

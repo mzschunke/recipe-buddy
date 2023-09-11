@@ -1,31 +1,13 @@
 "use client";
 
 import styles from "./Form.module.css";
-import useSWRMutation from "swr/mutation";
-import { useRouter } from "next/navigation";
 
-async function sendRequest(url, { arg }) {
-  const response = await fetch(url, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(arg),
-  });
-  const { status } = await response.json();
-  console.log("Status:", status);
-}
-
-export default function Form({ onSubmit, formName, defaultData }) {
-  const { trigger } = useSWRMutation("/api/recipes", sendRequest);
-  const router = useRouter();
-
+export default function Form({ formName, defaultData, onSubmit }) {
   async function handleSubmit(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData);
-    await trigger(data);
-    router.push("/recipes");
+    onSubmit(data);
   }
 
   return (
@@ -74,7 +56,6 @@ export default function Form({ onSubmit, formName, defaultData }) {
         defaultValue={defaultData?.strMealThumb}
         className={styles["input"]}
       />
-
       <label htmlFor="instructions" className={styles["label"]}>
         Instructions
       </label>

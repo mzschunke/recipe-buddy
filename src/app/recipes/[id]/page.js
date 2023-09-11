@@ -19,8 +19,6 @@ export default function RecipePage({ params }) {
     if (data) {
       const foundRecipe = data.find((recipe) => recipe._id === id);
       setCurrentRecipe(foundRecipe);
-      console.log("Data:", data);
-      console.log("Params.id (API):", id);
     }
   }, [data, id]);
 
