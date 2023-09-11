@@ -4,6 +4,7 @@ import Form from "../../../../components/Form";
 import { useRouter } from "next/navigation";
 import useSWRMutation from "swr/mutation";
 import styles from "../RecipeList.module.css";
+import Link from "next/link";
 
 async function sendRequest(url, { arg }) {
   const response = await fetch(url, {
@@ -27,9 +28,9 @@ export default function CreateRecipe() {
   return (
     <>
       <h2 className={styles["title"]}>Add Recipe:</h2>
-      <a href="/recipes" className={styles["back-button"]}>
+      <Link href="/recipes" className={styles["back-button"]}>
         Go back
-      </a>
+      </Link>
       <Form onSubmit={addRecipe} formName={"add-recipe"} requestType="POST" />
     </>
   );

@@ -19,6 +19,8 @@ export default function RecipePage({ params }) {
     if (data) {
       const foundRecipe = data.find((recipe) => recipe._id === id);
       setCurrentRecipe(foundRecipe);
+      console.log("data:", data);
+      console.log("foundRecipe:", foundRecipe);
     }
   }, [data, id]);
 
@@ -50,12 +52,14 @@ export default function RecipePage({ params }) {
             alt={currentRecipe.strMeal}
           />
           <dl className={styles["description-list"]}>
-            <dt>Description: </dt>
+            <dt>Category: </dt>
             <dd>{currentRecipe.strCategory}</dd>
             <dt>Area:</dt>
             <dd>{currentRecipe.strArea}</dd>
+            <dt>Keywords:</dt>
+            <dd>{currentRecipe.strTags || "-"}</dd>
           </dl>
-          Ingredients coming soon...
+          <Link href={`/recipes/${id}/instructions`}>Show Recipe</Link>
         </div>
       ) : (
         "Meal not found"
