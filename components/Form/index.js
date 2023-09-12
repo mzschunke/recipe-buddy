@@ -37,6 +37,7 @@ export default function Form({ formName, defaultData, onSubmit }) {
         type="text"
         defaultValue={defaultData?.strMeal}
         className={styles["input"]}
+        required={true}
       />
       <label htmlFor="category" className={styles["label"]}>
         Category:
@@ -47,6 +48,7 @@ export default function Form({ formName, defaultData, onSubmit }) {
         type="text"
         defaultValue={defaultData?.strCategory}
         className={styles["input"]}
+        required={true}
       />
       <label htmlFor="area" className={styles["label"]}>
         Area:
@@ -57,6 +59,7 @@ export default function Form({ formName, defaultData, onSubmit }) {
         type="text"
         defaultValue={defaultData?.strArea}
         className={styles["input"]}
+        required={true}
       />
       <label htmlFor="instructions" className={styles["label"]}>
         Instructions:
@@ -68,6 +71,7 @@ export default function Form({ formName, defaultData, onSubmit }) {
         rows="10"
         defaultValue={defaultData?.strInstructions}
         className={styles["textarea"]}
+        required={true}
       ></textarea>
 
       {ingredientFields.map((field, index) => (
