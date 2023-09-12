@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import useSWR from "swr";
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import sample from "../../../../lib/sample.jpg";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
@@ -44,13 +45,23 @@ export default function RecipePage({ params }) {
       {currentRecipe ? (
         <div className={styles["recipe-card"]}>
           <h2 className={styles["title"]}>{currentRecipe.strMeal}</h2>
-          <Image
-            src={currentRecipe.strMealThumb}
-            width={200}
-            height={200}
-            style={{ objectFit: "contain" }}
-            alt={currentRecipe.strMeal}
-          />
+          {currentRecipe.strMealThumb ? (
+            <Image
+              src={currentRecipe.strMealThumb}
+              width={200}
+              height={200}
+              style={{ objectFit: "contain" }}
+              alt={currentRecipe.strMeal}
+            />
+          ) : (
+            <Image
+              src={sample}
+              width={200}
+              height={200}
+              style={{ objectFit: "contain" }}
+              alt={currentRecipe.strMeal}
+            />
+          )}
           <dl className={styles["description-list"]}>
             <dt>Category: </dt>
             <dd>{currentRecipe.strCategory}</dd>

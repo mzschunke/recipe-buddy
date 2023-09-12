@@ -4,6 +4,7 @@ import styles from "./RecipeCard.module.css";
 import useSWR from "swr";
 import Image from "next/image";
 import Link from "next/link";
+import sample from "../../lib/sample.jpg";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
@@ -19,13 +20,23 @@ export default function RecipeCard() {
               <Link key={meal._id} href={`/recipes/${meal._id}`}>
                 <li className={styles["product-card"]}>
                   <h2 className={styles["title"]}>{meal.strMeal}</h2>
-                  {/* <Image
-                    src={meal.strMealThumb}
-                    width={200}
-                    height={200}
-                    style={{ objectFit: "contain" }}
-                    alt={meal.strMeal}
-                  /> */}
+                  {meal.strMealThumb ? (
+                    <Image
+                      src={meal.strMealThumb}
+                      width={200}
+                      height={200}
+                      style={{ objectFit: "contain" }}
+                      alt={meal.strMeal}
+                    />
+                  ) : (
+                    <Image
+                      src={sample}
+                      width={200}
+                      height={200}
+                      style={{ objectFit: "contain" }}
+                      alt={meal.strMeal}
+                    />
+                  )}
                 </li>
               </Link>
             ))}
