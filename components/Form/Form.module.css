@@ -27,7 +27,6 @@
 
 .ingredient-container {
   display: grid;
-  /* border: 2px solid black; */
   border-radius: 0.5rem;
   margin-bottom: 0.5rem;
 }
