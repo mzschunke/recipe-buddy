@@ -46,16 +46,6 @@ export default function Form({ formName, defaultData, onSubmit }) {
         defaultValue={defaultData?.strArea}
         className={styles["input"]}
       />
-      <label htmlFor="image-url" className={styles["label"]}>
-        Image URL:
-      </label>
-      <input
-        id="image-url"
-        name="strMealThumb"
-        type="text"
-        defaultValue={defaultData?.strMealThumb}
-        className={styles["input"]}
-      />
       <label htmlFor="instructions" className={styles["label"]}>
         Instructions
       </label>
