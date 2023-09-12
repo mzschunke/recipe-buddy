@@ -1,8 +1,20 @@
 "use client";
 
 import styles from "./Form.module.css";
+import { useState } from "react";
 
 export default function Form({ formName, defaultData, onSubmit }) {
+  const [ingredientFields, setIngredientFields] = useState([
+    {
+      ingredient: defaultData?.strIngredient1 || "",
+      measure: defaultData?.strMeasure1 || "",
+    },
+  ]);
+
+  const addIngredientField = () => {
+    setIngredientFields([...ingredientFields, { ingredient: "", measure: "" }]);
+  };
+
   async function handleSubmit(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
@@ -47,7 +59,7 @@ export default function Form({ formName, defaultData, onSubmit }) {
         className={styles["input"]}
       />
       <label htmlFor="instructions" className={styles["label"]}>
-        Instructions
+        Instructions:
       </label>
       <textarea
         name="strInstructions"
@@ -57,6 +69,48 @@ export default function Form({ formName, defaultData, onSubmit }) {
         defaultValue={defaultData?.strInstructions}
         className={styles["textarea"]}
       ></textarea>
+
+      {ingredientFields.map((field, index) => (
+        <div key={index} className={styles["ingredient-container"]}>
+          <label htmlFor={`ingredient${index + 1}`} className={styles["label"]}>
+            {`Ingredient ${index + 1}:`}
+          </label>
+          <input
+            id={`ingredient${index + 1}`}
+            name={`strIngredient${index + 1}`}
+            type="text"
+            className={styles["input"]}
+            value={field.ingredient}
+            onChange={(e) => {
+              const updatedFields = [...ingredientFields];
+              updatedFields[index].ingredient = e.target.value;
+              setIngredientFields(updatedFields);
+            }}
+          />
+          <label htmlFor={`measure${index + 1}`} className={styles["label"]}>
+            {`Measure ${index + 1}:`}
+          </label>
+          <input
+            id={`measure${index + 1}`}
+            name={`strMeasure${index + 1}`}
+            type="text"
+            className={styles["input"]}
+            value={field.measure}
+            onChange={(e) => {
+              const updatedFields = [...ingredientFields];
+              updatedFields[index].measure = e.target.value;
+              setIngredientFields(updatedFields);
+            }}
+          />
+        </div>
+      ))}
+      <button
+        type="button"
+        onClick={addIngredientField}
+        className={styles["more-button"]}
+      >
+        more ingredients...
+      </button>
       <button type="submit" className={styles["button"]}>
         {defaultData ? "Update recipe" : "Add recipe"}
       </button>
