@@ -1,5 +1,5 @@
 import dbConnect from "../../../../../db/connect";
-import Recipes from "../../../../../db/models/Recipes";
+import Recipes from "../../../../../db/models/recipes";
 
 await dbConnect();
 
