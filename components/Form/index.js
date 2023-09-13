@@ -23,7 +23,7 @@ export default function Form({ formName, defaultData, onSubmit }) {
           ingredients.push({ ingredient, measure });
         }
       }
-      setIngredientFields(ingredients);
+      setIngredientFields([...ingredients]);
     }
   }, [defaultData]);
 
