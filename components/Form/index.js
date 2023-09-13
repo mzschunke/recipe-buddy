@@ -85,7 +85,7 @@ export default function Form({ formName, defaultData, onSubmit }) {
         name="strInstructions"
         id="instructions"
         cols="30"
-        rows="10"
+        rows="5"
         defaultValue={defaultData?.strInstructions}
         className={styles["textarea"]}
         required={true}
