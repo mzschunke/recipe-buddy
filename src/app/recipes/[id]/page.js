@@ -20,8 +20,6 @@ export default function RecipePage({ params }) {
     if (data) {
       const foundRecipe = data.find((recipe) => recipe._id === id);
       setCurrentRecipe(foundRecipe);
-      console.log("data:", data);
-      console.log("foundRecipe:", foundRecipe);
     }
   }, [data, id]);
 

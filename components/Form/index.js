@@ -1,15 +1,31 @@
 "use client";
 
 import styles from "./Form.module.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function Form({ formName, defaultData, onSubmit }) {
-  const [ingredientFields, setIngredientFields] = useState([
-    {
-      ingredient: defaultData?.strIngredient1 || "",
-      measure: defaultData?.strMeasure1 || "",
-    },
-  ]);
+  const [ingredientFields, setIngredientFields] = useState([]);
+
+  useEffect(() => {
+    if (defaultData) {
+      const ingredients = [];
+      for (let i = 1; i <= 20; i++) {
+        const ingredient = defaultData[`strIngredient${i}`];
+        const measure = defaultData[`strMeasure${i}`];
+        if (
+          ingredient !== "" &&
+          ingredient !== null &&
+          ingredient !== undefined &&
+          measure !== "" &&
+          measure !== null &&
+          measure !== undefined
+        ) {
+          ingredients.push({ ingredient, measure });
+        }
+      }
+      setIngredientFields(ingredients);
+    }
+  }, [defaultData]);
 
   const addIngredientField = () => {
     setIngredientFields([...ingredientFields, { ingredient: "", measure: "" }]);
@@ -27,6 +43,7 @@ export default function Form({ formName, defaultData, onSubmit }) {
       aria-labelledby={formName}
       onSubmit={handleSubmit}
       className={styles["form-container"]}
+      autoComplete="on"
     >
       <label htmlFor="name" className={styles["label"]}>
         Name of recipe:
@@ -73,7 +90,6 @@ export default function Form({ formName, defaultData, onSubmit }) {
         className={styles["textarea"]}
         required={true}
       ></textarea>
-
       {ingredientFields.map((field, index) => (
         <div key={index} className={styles["ingredient-container"]}>
           <label htmlFor={`ingredient${index + 1}`} className={styles["label"]}>
@@ -84,7 +100,7 @@ export default function Form({ formName, defaultData, onSubmit }) {
             name={`strIngredient${index + 1}`}
             type="text"
             className={styles["input"]}
-            value={field.ingredient}
+            value={field.ingredient || ""}
             onChange={(e) => {
               const updatedFields = [...ingredientFields];
               updatedFields[index].ingredient = e.target.value;
@@ -99,7 +115,7 @@ export default function Form({ formName, defaultData, onSubmit }) {
             name={`strMeasure${index + 1}`}
             type="text"
             className={styles["input"]}
-            value={field.measure}
+            value={field.measure || ""}
             onChange={(e) => {
               const updatedFields = [...ingredientFields];
               updatedFields[index].measure = e.target.value;
@@ -113,7 +129,7 @@ export default function Form({ formName, defaultData, onSubmit }) {
         onClick={addIngredientField}
         className={styles["more-button"]}
       >
-        more ingredients...
+        add more ingredients...
       </button>
       <button type="submit" className={styles["button"]}>
         {defaultData ? "Update recipe" : "Add recipe"}

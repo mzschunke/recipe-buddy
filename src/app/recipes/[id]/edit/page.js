@@ -4,6 +4,7 @@ import Link from "next/link";
 import useSWR from "swr";
 import Form from "../../../../../components/Form";
 import { useRouter } from "next/navigation";
+import styles from "../../RecipeList.module.css";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
@@ -35,7 +36,9 @@ export default function EditPage({ params }) {
 
   return (
     <>
-      <h2 id="edit-recipe">Edit Recipe</h2>
+      <h2 id="edit-recipe" className={styles["title"]}>
+        Edit Recipe
+      </h2>
       {data ? (
         <Form
           onSubmit={editRecipe}
