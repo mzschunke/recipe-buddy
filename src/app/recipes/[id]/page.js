@@ -47,17 +47,19 @@ export default function RecipePage({ params }) {
           <h2 className={styles["title"]}>{currentRecipe.strMeal}</h2>
           <Image
             src={currentRecipe.strMealThumb || sample}
-            width={250}
-            height={250}
+            width={325}
+            height={325}
             style={{ objectFit: "contain" }}
             alt={currentRecipe.strMeal}
           />
-          <dl className={styles["description-list"]}>
-            <dt>Category: </dt>
-            <dd>{currentRecipe.strCategory}</dd>
-            <dt>Area:</dt>
-            <dd>{currentRecipe.strArea}</dd>
-          </dl>
+          <div>
+            <dl className={styles["description-list"]}>
+              <dt className={styles["description-item"]}>Category: </dt>
+              <dd>{currentRecipe.strCategory}</dd>
+              <dt className={styles["description-item"]}>Area:</dt>
+              <dd>{currentRecipe.strArea}</dd>
+            </dl>
+          </div>
           <RecipeIngredients recipe={currentRecipe} />
           <Link href={`/recipes/${id}/edit`} passHref legacyBehavior>
             Edit
