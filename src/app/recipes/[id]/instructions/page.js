@@ -1,9 +1,7 @@
 "use client";
 
 import useSWR from "swr";
-import styles from "../../RecipeList.module.css";
 import Link from "next/link";
-import Image from "next/image";
 import RecipeIngredients from "../../../../../components/RecipeInstructions";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
