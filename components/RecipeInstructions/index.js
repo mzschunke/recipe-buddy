@@ -1,5 +1,4 @@
 import styles from "./RecipeInstrucions.module.css";
-import { useState } from "react";
 
 export default function RecipeIngredients({ recipe }) {
   const ingredientProperties = [];
@@ -10,12 +9,6 @@ export default function RecipeIngredients({ recipe }) {
       ingredientProperties.push({ ingredient, measure });
     }
   }
-
-  const [showIngredients, setShowIngredients] = useState(false);
-
-  const toggleIngredients = () => {
-    setShowIngredients(!showIngredients);
-  };
 
   return (
     <>
@@ -33,19 +26,6 @@ export default function RecipeIngredients({ recipe }) {
         <h4>Instructions:</h4>
         <p>{recipe.strInstructions}</p>
       </section>
-      <h3>Ingredients:</h3>
-      <button onClick={toggleIngredients}>
-        {showIngredients ? "Hide Ingredients" : "Show Ingredients"}
-      </button>
-      {showIngredients && (
-        <ul>
-          {ingredientProperties.map((item, index) => (
-            <li key={index}>
-              {item.measure} {item.ingredient}
-            </li>
-          ))}
-        </ul>
-      )}
     </>
   );
 }

@@ -7,6 +7,7 @@ import useSWR from "swr";
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import sample from "../../../../lib/sample.jpg";
+import RecipeIngredients from "../../../../components/RecipeInstructions";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
@@ -42,11 +43,12 @@ export default function RecipePage({ params }) {
     <div className={styles["recipe-container"]}>
       {currentRecipe ? (
         <div className={styles["recipe-card"]}>
+          <Link href={"/recipes"}>Go back</Link>
           <h2 className={styles["title"]}>{currentRecipe.strMeal}</h2>
           <Image
             src={currentRecipe.strMealThumb || sample}
-            width={200}
-            height={200}
+            width={250}
+            height={250}
             style={{ objectFit: "contain" }}
             alt={currentRecipe.strMeal}
           />
@@ -56,18 +58,17 @@ export default function RecipePage({ params }) {
             <dt>Area:</dt>
             <dd>{currentRecipe.strArea}</dd>
           </dl>
-          <Link href={`/recipes/${id}/instructions`}>Show Recipe</Link>
+          <RecipeIngredients recipe={currentRecipe} />
+          <Link href={`/recipes/${id}/edit`} passHref legacyBehavior>
+            Edit
+          </Link>
+          <button onClick={deleteRecipe} type="button">
+            Delete recipe
+          </button>
         </div>
       ) : (
         "Meal not found"
       )}
-      <Link href={"/recipes"}>Go back</Link>
-      <Link href={`/recipes/${id}/edit`} passHref legacyBehavior>
-        Edit
-      </Link>
-      <button onClick={deleteRecipe} type="button">
-        Delete recipe
-      </button>
     </div>
   );
 }
