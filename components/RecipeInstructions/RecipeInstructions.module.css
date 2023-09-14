@@ -1,10 +1,9 @@
 .instructions-container {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: flex-;
   justify-content: center;
   padding: 1rem;
   gap: 0.5rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   width: 100%;
 }

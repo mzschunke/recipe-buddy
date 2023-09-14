@@ -8,7 +8,7 @@ export default async function RecipeList() {
       <Link href="/">Go Home</Link>
       <RecipeCard />
       <Link href="/recipes/create" className={styles["button"]}>
-        + Recipe
+        add recipe
       </Link>
     </>
   );

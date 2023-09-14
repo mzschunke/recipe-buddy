@@ -1,6 +1,6 @@
 "use client";
 
-import styles from "../RecipeList.module.css";
+import styles from "./Recipes.module.css";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import useSWR from "swr";
@@ -48,7 +48,7 @@ export default function RecipePage({ params }) {
           <h2 className={styles["title"]}>{currentRecipe.strMeal}</h2>
           <div className={styles["description-container"]}>
             <p>Category: {currentRecipe.strCategory}</p>
-            <p>Area: {currentRecipe.strArea}</p>
+            <p>Origin: {currentRecipe.strArea}</p>
           </div>
           <div className={styles["image-container"]}>
             <Image
@@ -61,12 +61,18 @@ export default function RecipePage({ params }) {
           </div>
           <RecipeIngredients recipe={currentRecipe} />
           <RecipeInstructions recipe={currentRecipe} />
-          <Link href={`/recipes/${id}/edit`} passHref legacyBehavior>
-            Edit
-          </Link>
-          <button onClick={deleteRecipe} type="button">
-            Delete recipe
-          </button>
+          <div className={styles["button-container"]}>
+            <Link href={`/recipes/${id}/edit`} className={styles["buttons"]}>
+              Edit recipe
+            </Link>
+            <Link
+              href={`/recipes/`}
+              onClick={deleteRecipe}
+              className={styles["buttons"]}
+            >
+              Delete recipe
+            </Link>
+          </div>
         </div>
       ) : (
         "Meal not found"

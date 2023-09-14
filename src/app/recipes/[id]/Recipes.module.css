@@ -1,0 +1,120 @@
+.recipe-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.recipe-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(255, 255, 255, 0.5);
+  border-radius: 8px;
+}
+
+.title {
+  font-size: 2rem;
+  padding-top: 0.5rem;
+  justify-self: center;
+}
+
+.description-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  margin-bottom: 0.5rem;
+  gap: 0.3rem;
+  font-weight: 500;
+  width: 100%;
+}
+
+.image-container {
+  padding-bottom: 0.5rem;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.button {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  background-color: lightsalmon;
+  padding: 0.8rem 1.5rem;
+  border-radius: 0.6rem;
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.back-button {
+  position: fixed;
+  top: 25px;
+  right: 25px;
+}
+.recipe-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.recipe-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(255, 255, 255, 0.5);
+  border-radius: 8px;
+}
+
+.title {
+  font-size: 2rem;
+  padding-top: 0.5rem;
+  justify-self: center;
+}
+
+.description-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  margin-bottom: 0.5rem;
+  gap: 0.3rem;
+  font-weight: 500;
+  width: 100%;
+}
+
+.image-container {
+  padding-bottom: 0.5rem;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.button-container {
+  display: flex;
+  gap: 1rem;
+}
+
+.buttons {
+  background-color: lightsalmon;
+  padding: 0.8rem 1rem;
+  border-radius: 0.6rem;
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.back-button {
+  position: fixed;
+  top: 25px;
+  right: 25px;
+}
