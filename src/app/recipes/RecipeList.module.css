@@ -16,14 +16,10 @@
 }
 
 .title {
-  font-size: 2.1rem;
+  font-size: 2rem;
   padding: 0.4rem;
   margin: 0.5rem 0;
   justify-self: center;
-  color: rgb(137, 83, 41);
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
-  font-weight: 700;
 }
 
 .description-list {
@@ -31,8 +27,6 @@
   justify-content: flex-start;
   padding: 0.5rem;
   gap: 0.3rem;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
   font-style: italic;
   font-weight: 500;
   color: rgb(137, 83, 41);
