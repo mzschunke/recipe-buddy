@@ -7,7 +7,8 @@ import useSWR from "swr";
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import sample from "../../../../lib/sample.jpg";
-import RecipeIngredients from "../../../../components/RecipeInstructions";
+import RecipeIngredients from "../../../../components/RecipeIngredients";
+import RecipeInstructions from "../../../../components/RecipeInstructions";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
@@ -61,6 +62,7 @@ export default function RecipePage({ params }) {
             </dl>
           </div>
           <RecipeIngredients recipe={currentRecipe} />
+          <RecipeInstructions recipe={currentRecipe} />
           <Link href={`/recipes/${id}/edit`} passHref legacyBehavior>
             Edit
           </Link>
