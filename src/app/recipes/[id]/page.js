@@ -46,6 +46,10 @@ export default function RecipePage({ params }) {
         <div className={styles["recipe-card"]}>
           <Link href={"/recipes"}>Go back</Link>
           <h2 className={styles["title"]}>{currentRecipe.strMeal}</h2>
+          <div className={styles["description-container"]}>
+            <p>Category: {currentRecipe.strCategory}</p>
+            <p>Area: {currentRecipe.strArea}</p>
+          </div>
           <Image
             src={currentRecipe.strMealThumb || sample}
             width={325}
@@ -53,10 +57,6 @@ export default function RecipePage({ params }) {
             style={{ objectFit: "contain" }}
             alt={currentRecipe.strMeal}
           />
-          <div className={styles["description-container"]}>
-            <p>Category: {currentRecipe.strCategory}</p>
-            <p>Area: {currentRecipe.strArea}</p>
-          </div>
           <RecipeIngredients recipe={currentRecipe} />
           <RecipeInstructions recipe={currentRecipe} />
           <Link href={`/recipes/${id}/edit`} passHref legacyBehavior>
