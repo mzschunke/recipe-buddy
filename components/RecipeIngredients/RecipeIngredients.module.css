@@ -1,9 +1,14 @@
-.instructions-container {
+.ingredients-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
-  padding: 1rem;
+  padding: 1rem 2rem;
   gap: 0.5rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+
+.ingredients-list {
+  margin: 0;
 }

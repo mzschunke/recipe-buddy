@@ -53,13 +53,9 @@ export default function RecipePage({ params }) {
             style={{ objectFit: "contain" }}
             alt={currentRecipe.strMeal}
           />
-          <div>
-            <dl className={styles["description-list"]}>
-              <dt className={styles["description-item"]}>Category: </dt>
-              <dd>{currentRecipe.strCategory}</dd>
-              <dt className={styles["description-item"]}>Area:</dt>
-              <dd>{currentRecipe.strArea}</dd>
-            </dl>
+          <div className={styles["description-container"]}>
+            <p>Category: {currentRecipe.strCategory}</p>
+            <p>Area: {currentRecipe.strArea}</p>
           </div>
           <RecipeIngredients recipe={currentRecipe} />
           <RecipeInstructions recipe={currentRecipe} />

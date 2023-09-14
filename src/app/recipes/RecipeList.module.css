@@ -22,18 +22,15 @@
   justify-self: center;
 }
 
-.description-list {
+.description-container {
   display: flex;
-  justify-content: flex-start;
-  padding: 0.5rem;
+  justify-content: space-evenly;
+  padding: 0.5rem 1rem;
   gap: 0.3rem;
   font-style: italic;
   font-weight: 500;
-  color: rgb(137, 83, 41);
-}
-
-.description-item {
-  margin-left: 1rem;
+  width: 100%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .button {

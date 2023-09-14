@@ -10,17 +10,15 @@ export default function RecipeIngredients({ recipe }) {
     }
   }
   return (
-    <>
-      <section className={styles["instructions-container"]}>
-        <h3>Ingredients:</h3>
-        <ul>
-          {ingredientProperties.map((item, index) => (
-            <li key={index}>
-              {item.measure} {item.ingredient}
-            </li>
-          ))}
-        </ul>
-      </section>
-    </>
+    <section className={styles["ingredients-container"]}>
+      <h3>Ingredients:</h3>
+      <ul className={styles["ingredients-listr"]}>
+        {ingredientProperties.map((item, index) => (
+          <li key={index}>
+            {item.measure} {item.ingredient}
+          </li>
+        ))}
+      </ul>
+    </section>
   );
 }
