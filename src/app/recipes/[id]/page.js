@@ -50,13 +50,15 @@ export default function RecipePage({ params }) {
             <p>Category: {currentRecipe.strCategory}</p>
             <p>Area: {currentRecipe.strArea}</p>
           </div>
-          <Image
-            src={currentRecipe.strMealThumb || sample}
-            width={325}
-            height={325}
-            style={{ objectFit: "contain" }}
-            alt={currentRecipe.strMeal}
-          />
+          <div className={styles["image-container"]}>
+            <Image
+              src={currentRecipe.strMealThumb || sample}
+              width={325}
+              height={325}
+              style={{ objectFit: "contain" }}
+              alt={currentRecipe.strMeal}
+            />
+          </div>
           <RecipeIngredients recipe={currentRecipe} />
           <RecipeInstructions recipe={currentRecipe} />
           <Link href={`/recipes/${id}/edit`} passHref legacyBehavior>
