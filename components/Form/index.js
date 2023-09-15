@@ -93,7 +93,7 @@ export default function Form({ formName, defaultData, onSubmit }) {
       {ingredientFields.map((field, index) => (
         <div key={index} className={styles["ingredient-container"]}>
           <label htmlFor={`ingredient${index + 1}`} className={styles["label"]}>
-            {`Ingredient ${index + 1}:`}
+            Ingredient:
           </label>
           <input
             id={`ingredient${index + 1}`}
@@ -108,7 +108,7 @@ export default function Form({ formName, defaultData, onSubmit }) {
             }}
           />
           <label htmlFor={`measure${index + 1}`} className={styles["label"]}>
-            {`Measure ${index + 1}:`}
+            Measure:
           </label>
           <input
             id={`measure${index + 1}`}
