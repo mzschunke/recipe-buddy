@@ -13,39 +13,37 @@ export default function RecipeCard() {
   const { data } = useSWR("/api/recipes", fetcher);
 
   return (
-    <>
-      <div className={styles["product-container"]}>
-        {data ? (
-          <ul className={styles["product-list"]}>
-            {data.map((meal) => (
-              <Link key={meal._id} href={`/recipes/${meal._id}`}>
-                <li className={styles["product-card"]}>
-                  <h2 className={styles["title"]}>{meal.strMeal}</h2>
-                  {meal.strMealThumb ? (
-                    <Image
-                      src={meal.strMealThumb}
-                      width={200}
-                      height={200}
-                      style={{ objectFit: "contain" }}
-                      alt={meal.strMeal}
-                    />
-                  ) : (
-                    <Image
-                      src={sample}
-                      width={200}
-                      height={200}
-                      style={{ objectFit: "contain" }}
-                      alt={meal.strMeal}
-                    />
-                  )}
-                </li>
-              </Link>
-            ))}
-          </ul>
-        ) : (
-          <Loader />
-        )}
-      </div>
-    </>
+    <div className={styles["overview-container"]}>
+      {data ? (
+        <ul className={styles["product-list"]}>
+          {data.map((meal) => (
+            <Link key={meal._id} href={`/recipes/${meal._id}`}>
+              <li className={styles["product-card"]}>
+                {meal.strMealThumb ? (
+                  <Image
+                    src={meal.strMealThumb}
+                    width={250}
+                    height={250}
+                    style={{ objectFit: "contain" }}
+                    alt={meal.strMeal}
+                  />
+                ) : (
+                  <Image
+                    src={sample}
+                    width={250}
+                    height={250}
+                    style={{ objectFit: "contain" }}
+                    alt={meal.strMeal}
+                  />
+                )}
+                <h2 className={styles["title"]}>{meal.strMeal}</h2>
+              </li>
+            </Link>
+          ))}
+        </ul>
+      ) : (
+        <Loader />
+      )}
+    </div>
   );
 }
