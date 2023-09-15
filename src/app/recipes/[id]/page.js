@@ -1,12 +1,15 @@
 "use client";
 
-import styles from "../RecipeList.module.css";
+import styles from "./Recipes.module.css";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import useSWR from "swr";
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import sample from "../../../../lib/sample.jpg";
+import RecipeIngredients from "../../../../components/RecipeIngredients";
+import RecipeInstructions from "../../../../components/RecipeInstructions";
+import Loader from "../../../../components/Loader";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
@@ -42,44 +45,39 @@ export default function RecipePage({ params }) {
     <div className={styles["recipe-container"]}>
       {currentRecipe ? (
         <div className={styles["recipe-card"]}>
+          <Link href={"/recipes"}>Go back</Link>
           <h2 className={styles["title"]}>{currentRecipe.strMeal}</h2>
-          {currentRecipe.strMealThumb ? (
+          <div className={styles["description-container"]}>
+            <p>Category: {currentRecipe.strCategory}</p>
+            <p>Origin: {currentRecipe.strArea}</p>
+          </div>
+          <div className={styles["image-container"]}>
             <Image
-              src={currentRecipe.strMealThumb}
-              width={200}
-              height={200}
+              src={currentRecipe.strMealThumb || sample}
+              width={325}
+              height={325}
               style={{ objectFit: "contain" }}
               alt={currentRecipe.strMeal}
             />
-          ) : (
-            <Image
-              src={sample}
-              width={200}
-              height={200}
-              style={{ objectFit: "contain" }}
-              alt={currentRecipe.strMeal}
-            />
-          )}
-          <dl className={styles["description-list"]}>
-            <dt>Category: </dt>
-            <dd>{currentRecipe.strCategory}</dd>
-            <dt>Area:</dt>
-            <dd>{currentRecipe.strArea}</dd>
-            <dt>Keywords:</dt>
-            <dd>{currentRecipe.strTags || "-"}</dd>
-          </dl>
-          <Link href={`/recipes/${id}/instructions`}>Show Recipe</Link>
+          </div>
+          <RecipeIngredients recipe={currentRecipe} />
+          <RecipeInstructions recipe={currentRecipe} />
+          <div className={styles["button-container"]}>
+            <Link href={`/recipes/${id}/edit`} className={styles["buttons"]}>
+              Edit recipe
+            </Link>
+            <Link
+              href={`/recipes/`}
+              onClick={deleteRecipe}
+              className={styles["buttons"]}
+            >
+              Delete recipe
+            </Link>
+          </div>
         </div>
       ) : (
-        "Meal not found"
+        <Loader />
       )}
-      <Link href={"/recipes"}>Go back</Link>
-      <Link href={`/recipes/${id}/edit`} passHref legacyBehavior>
-        Edit
-      </Link>
-      <button onClick={deleteRecipe} type="button">
-        Delete recipe
-      </button>
     </div>
   );
 }

@@ -4,14 +4,15 @@ import Link from "next/link";
 import useSWR from "swr";
 import Form from "../../../../../components/Form";
 import { useRouter } from "next/navigation";
-import styles from "../../RecipeList.module.css";
+import styles from "./Edit.module.css";
+import Loader from "../../../../../components/Loader";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 export default function EditPage({ params }) {
   const router = useRouter();
   const id = params.id;
-  const { data, error } = useSWR(`/api/recipes/${id}`, fetcher);
+  const { data, error, isLoading } = useSWR(`/api/recipes/${id}`, fetcher);
 
   async function editRecipe(recipeData) {
     try {
@@ -32,13 +33,16 @@ export default function EditPage({ params }) {
     }
   }
   if (error) return <p>Error: {error.message}</p>;
-  if (!data) return <p>Loading...</p>;
+  if (isLoading) return <Loader />;
 
   return (
     <>
-      <h2 id="edit-recipe" className={styles["title"]}>
-        Edit Recipe
-      </h2>
+      <div className={styles["header-container"]}>
+        <h2>Edit Recipe</h2>
+        <Link href={`/recipes/${id}`} passHref legacyBehavior>
+          back
+        </Link>
+      </div>
       {data ? (
         <Form
           onSubmit={editRecipe}
@@ -48,9 +52,6 @@ export default function EditPage({ params }) {
       ) : (
         <p>No data available</p>
       )}
-      <Link href={`/recipes/${id}`} passHref legacyBehavior>
-        back
-      </Link>
     </>
   );
 }

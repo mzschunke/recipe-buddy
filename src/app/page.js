@@ -1,4 +1,5 @@
 import Link from "next/link";
+import "@fontsource/ubuntu";
 
 export default function Home() {
   return (
