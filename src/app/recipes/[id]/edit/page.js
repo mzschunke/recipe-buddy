@@ -4,7 +4,7 @@ import Link from "next/link";
 import useSWR from "swr";
 import Form from "../../../../../components/Form";
 import { useRouter } from "next/navigation";
-import styles from "../../RecipeList.module.css";
+import styles from "./Edit.module.css";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
@@ -36,9 +36,12 @@ export default function EditPage({ params }) {
 
   return (
     <>
-      <h2 id="edit-recipe" className={styles["title"]}>
-        Edit Recipe
-      </h2>
+      <div className={styles["header-container"]}>
+        <h2>Edit Recipe</h2>
+        <Link href={`/recipes/${id}`} passHref legacyBehavior>
+          back
+        </Link>
+      </div>
       {data ? (
         <Form
           onSubmit={editRecipe}
@@ -48,9 +51,6 @@ export default function EditPage({ params }) {
       ) : (
         <p>No data available</p>
       )}
-      <Link href={`/recipes/${id}`} passHref legacyBehavior>
-        back
-      </Link>
     </>
   );
 }
