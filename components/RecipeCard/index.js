@@ -5,6 +5,7 @@ import useSWR from "swr";
 import Image from "next/image";
 import Link from "next/link";
 import sample from "../../lib/sample.jpg";
+import Loader from "../Loader";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
@@ -42,7 +43,7 @@ export default function RecipeCard() {
             ))}
           </ul>
         ) : (
-          <div>loading..</div>
+          <Loader />
         )}
       </div>
     </>
