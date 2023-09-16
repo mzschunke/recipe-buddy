@@ -4,6 +4,7 @@ import { useState } from "react";
 import useSWR from "swr";
 import styles from "./Search.module.css";
 import Loader from "../Loader";
+import Image from "next/image";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
@@ -38,12 +39,31 @@ export default function Search() {
         {isValidating && <Loader />}
         {data && data.meals === null ? <p>No recipes found</p> : null}
         {data && data.meals && data.meals.length > 0 && (
-          <div>
-            {data.meals.map((recipe) => (
-              <div key={recipe.idMeal}>
-                <h2>{recipe.strMeal}</h2>
-              </div>
-            ))}
+          <div className={styles["list-container"]}>
+            <ul className={styles["product-list"]}>
+              {data.meals.map((recipe) => (
+                <li key={recipe.idMeal} className={styles["product-card"]}>
+                  {recipe.strMealThumb ? (
+                    <Image
+                      src={recipe.strMealThumb}
+                      width={250}
+                      height={250}
+                      style={{ objectFit: "contain" }}
+                      alt={recipe.strMeal}
+                    />
+                  ) : (
+                    <Image
+                      src={sample}
+                      width={250}
+                      height={250}
+                      style={{ objectFit: "contain" }}
+                      alt={recipe.strMeal}
+                    />
+                  )}
+                  <h2>{recipe.strMeal}</h2>
+                </li>
+              ))}
+            </ul>
           </div>
         )}
       </div>
