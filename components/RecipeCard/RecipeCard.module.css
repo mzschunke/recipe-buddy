@@ -29,5 +29,8 @@
   margin-bottom: 0.8rem;
   margin-top: 1.2rem;
   justify-self: center;
-  text-decoration: underline;
+}
+.link {
+  text-decoration: none;
+  color: rgb(133, 32, 32);
 }
