@@ -25,6 +25,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative;
   min-height: 45vh;
   border-radius: 8px;
   padding: 1rem;
@@ -37,4 +38,20 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.button {
+  background-color: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.heart-icon {
+  color: #e2463a;
+  width: 2rem;
+  position: absolute;
+  top: 0.3rem;
+  right: 0.6rem;
+  width: 3rem;
 }

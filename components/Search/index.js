@@ -1,12 +1,13 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import useSWR from "swr";
 import { useRouter } from "next/navigation";
 import styles from "./Search.module.css";
 import Loader from "../Loader";
 import Image from "next/image";
 import sample from "../../lib/sample.jpg";
+import { BsFillSuitHeartFill } from "react-icons/bs";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
@@ -96,8 +97,14 @@ export default function Search() {
                       alt={recipe.strMeal}
                     />
                   )}
-                  <button onClick={() => handleAddToFavorites(recipe)}>
-                    Add to favorites
+                  <button
+                    onClick={() => handleAddToFavorites(recipe)}
+                    className={styles["button"]}
+                  >
+                    <BsFillSuitHeartFill
+                      className={styles["heart-icon"]}
+                      size={50}
+                    />
                   </button>
                   <h2 className={styles["title"]}>{recipe.strMeal}</h2>
                 </li>
