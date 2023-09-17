@@ -34,3 +34,12 @@
   text-decoration: none;
   color: rgb(133, 32, 32);
 }
+
+.details-button {
+  padding: 2rem;
+  background-color: blue;
+}
+
+.details-container {
+  border: 1px solid black;
+}

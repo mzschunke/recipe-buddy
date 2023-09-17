@@ -15,6 +15,7 @@ const URL = "https://www.themealdb.com/api/json/v1/1/search.php?s=";
 
 export default function Search() {
   const router = useRouter();
+  const [showDetails, setShowDetails] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const { data, error, isValidating } = useSWR(
     searchQuery ? `${URL}${searchQuery}` : null,
@@ -23,6 +24,10 @@ export default function Search() {
 
   const handleInputChange = (event) => {
     setSearchQuery(event.target.value);
+  };
+
+  const toggleDetails = () => {
+    setShowDetails(!showDetails);
   };
 
   async function addToFavorites(recipe) {
@@ -107,6 +112,20 @@ export default function Search() {
                     />
                   </button>
                   <h2 className={styles["title"]}>{recipe.strMeal}</h2>
+                  <p>Category: {recipe.strCategory}</p>
+                  <p>Area: {recipe.strArea}</p>
+                  <button
+                    onClick={toggleDetails}
+                    className={styles["details-button"]}
+                  >
+                    Show details
+                  </button>
+                  {showDetails && (
+                    <div className={styles["details-container"]}>
+                      <p>{recipe.strInstructions}</p>
+                      <button onClick={toggleDetails}>close</button>
+                    </div>
+                  )}
                 </li>
               ))}
             </ul>
