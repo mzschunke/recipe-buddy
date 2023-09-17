@@ -1,16 +1,19 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import useSWR from "swr";
+import { useRouter } from "next/navigation";
 import styles from "./Search.module.css";
 import Loader from "../Loader";
 import Image from "next/image";
+import sample from "../../lib/sample.jpg";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 const URL = "https://www.themealdb.com/api/json/v1/1/search.php?s=";
 
 export default function Search() {
+  const router = useRouter();
   const [searchQuery, setSearchQuery] = useState("");
   const { data, error, isValidating } = useSWR(
     searchQuery ? `${URL}${searchQuery}` : null,
@@ -19,6 +22,37 @@ export default function Search() {
 
   const handleInputChange = (event) => {
     setSearchQuery(event.target.value);
+  };
+
+  async function addToFavorites(recipe) {
+    try {
+      const recipeData = {
+        strMeal: recipe.strMeal,
+        strCategory: recipe.strCategory,
+        strArea: recipe.strArea,
+        strMealThumb: recipe.strMealThumb,
+        strInstructions: recipe.strInstructions,
+      };
+
+      const response = await fetch("/api/recipes", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(recipeData),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to add recipe");
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  const handleAddToFavorites = async (recipe) => {
+    await addToFavorites(recipe);
+    router.push("/recipes");
   };
 
   if (error) return <div>Failed to load</div>;
@@ -62,6 +96,9 @@ export default function Search() {
                       alt={recipe.strMeal}
                     />
                   )}
+                  <button onClick={() => handleAddToFavorites(recipe)}>
+                    Add to favorites
+                  </button>
                   <h2 className={styles["title"]}>{recipe.strMeal}</h2>
                 </li>
               ))}
