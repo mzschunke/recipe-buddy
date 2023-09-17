@@ -9,7 +9,7 @@ import Loader from "../Loader";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
-export default function RecipeCard() {
+export default function RecipeList() {
   const { data } = useSWR("/api/recipes", fetcher);
 
   return (
