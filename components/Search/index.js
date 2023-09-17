@@ -37,7 +37,9 @@ export default function Search() {
       </div>
       <div>
         {isValidating && <Loader />}
-        {data && data.meals === null ? <p>No recipes found</p> : null}
+        {data && data.meals === null ? (
+          <div className={styles["no-result"]}>No recipes found</div>
+        ) : null}
         {data && data.meals && data.meals.length > 0 && (
           <div className={styles["list-container"]}>
             <ul className={styles["product-list"]}>
@@ -60,7 +62,7 @@ export default function Search() {
                       alt={recipe.strMeal}
                     />
                   )}
-                  <h2>{recipe.strMeal}</h2>
+                  <h2 className={styles["title"]}>{recipe.strMeal}</h2>
                 </li>
               ))}
             </ul>
