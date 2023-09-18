@@ -8,6 +8,7 @@ import Loader from "../Loader";
 import Image from "next/image";
 import sample from "../../lib/sample.jpg";
 import { BsFillSuitHeartFill } from "react-icons/bs";
+import Modal from "../Modal";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
@@ -111,21 +112,10 @@ export default function Search() {
                       size={50}
                     />
                   </button>
-                  <h2 className={styles["title"]}>{recipe.strMeal}</h2>
+                  <h2>{recipe.strMeal}</h2>
                   <p>Category: {recipe.strCategory}</p>
                   <p>Area: {recipe.strArea}</p>
-                  <button
-                    onClick={toggleDetails}
-                    className={styles["details-button"]}
-                  >
-                    Show details
-                  </button>
-                  {showDetails && (
-                    <div className={styles["details-container"]}>
-                      <p>{recipe.strInstructions}</p>
-                      <button onClick={toggleDetails}>close</button>
-                    </div>
-                  )}
+                  <Modal recipe={recipe} />
                 </li>
               ))}
             </ul>

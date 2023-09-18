@@ -9,7 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
     "@fontsource/ubuntu": "^5.0.8",
+    "@mui/material": "^5.14.10",
     "eslint": "8.46.0",
     "eslint-config-next": "13.4.13",
     "mongoose": "^7.5.0",
