@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import useSWR from "swr";
-import { useRouter } from "next/navigation";
 import styles from "./Search.module.css";
 import Loader from "../Loader";
 import Image from "next/image";
@@ -15,7 +14,6 @@ const fetcher = (...args) => fetch(...args).then((res) => res.json());
 const URL = "https://www.themealdb.com/api/json/v1/1/search.php?s=";
 
 export default function Search() {
-  const router = useRouter();
   const [showDetails, setShowDetails] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const { data, error, isValidating } = useSWR(
@@ -26,11 +24,6 @@ export default function Search() {
   const handleInputChange = (event) => {
     setSearchQuery(event.target.value);
   };
-
-  const toggleDetails = () => {
-    setShowDetails(!showDetails);
-  };
-
   async function addToFavorites(recipe) {
     try {
       const recipeData = {
@@ -59,7 +52,7 @@ export default function Search() {
 
   const handleAddToFavorites = async (recipe) => {
     await addToFavorites(recipe);
-    router.push("/recipes");
+    alert("Recipe has been added to your favorites");
   };
 
   if (error) return <div>Failed to load</div>;
