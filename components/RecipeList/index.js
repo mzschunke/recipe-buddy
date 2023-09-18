@@ -9,7 +9,7 @@ import Loader from "../Loader";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
-export default function RecipeCard() {
+export default function RecipeList() {
   const { data } = useSWR("/api/recipes", fetcher);
 
   return (
@@ -17,7 +17,11 @@ export default function RecipeCard() {
       {data ? (
         <ul className={styles["product-list"]}>
           {data.map((meal) => (
-            <Link key={meal._id} href={`/recipes/${meal._id}`}>
+            <Link
+              key={meal._id}
+              href={`/recipes/${meal._id}`}
+              className={styles["link"]}
+            >
               <li className={styles["product-card"]}>
                 {meal.strMealThumb ? (
                   <Image
