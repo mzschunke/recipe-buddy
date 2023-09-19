@@ -1,9 +1,9 @@
 .search-container {
-  margin-top: 1rem;
   display: flex;
   justify-content: center;
   border-bottom: 2px dotted black;
   padding: 1rem;
+  gap: 0.5rem;
 }
 
 .list-container {
