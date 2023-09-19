@@ -5,12 +5,32 @@
 
 .menu-container {
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  align-items: center;
+  gap: 10%;
+  padding: 1rem;
 }
 
 .title {
   font-size: 3rem;
   padding: 1rem;
+}
+
+.link {
+  text-decoration: none;
+  color: green;
+  background-color: rgb(255, 255, 255, 0.5);
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.link-text {
+  font-size: 1rem;
+}
+
+.button {
+  border: none;
+  color: green;
+  background-color: rgb(255, 255, 255, 0.5);
+  border-radius: 5px;
+  padding: 5px;
 }
