@@ -1,10 +1,12 @@
+"use client";
+
 import Image from "next/image";
 import styles from "./RandomMealButton.module.css";
 import dices from "../../lib/dices.png";
 
-export default function RandomMealButton() {
+export default function RandomMealButton({ onClick }) {
   return (
-    <button className={styles["button"]}>
+    <button className={styles["button"]} onClick={onClick}>
       <Image
         src={dices}
         style={{ objectFit: "contain" }}

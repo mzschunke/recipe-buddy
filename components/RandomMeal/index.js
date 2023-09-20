@@ -6,9 +6,9 @@ import styles from "./RandomMeal.module.css";
 import Loader from "../Loader";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
+const URL = "https://www.themealdb.com/api/json/v1/1/random.php";
 
 export default function RandomMeal() {
-  const URL = "https://www.themealdb.com/api/json/v1/1/random.php";
   const { data, error, isLoading } = useSWR(URL, fetcher);
 
   if (error) {
@@ -23,7 +23,6 @@ export default function RandomMeal() {
     const { meals } = data;
     const randomMeal = meals[0];
     const image = data.meals[0].strMealThumb;
-    console.log("Image found:", image);
 
     return (
       <>
