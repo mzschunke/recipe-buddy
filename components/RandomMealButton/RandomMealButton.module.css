@@ -1,0 +1,16 @@
+.link-text {
+  font-size: 1.2rem;
+}
+
+.button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  color: green;
+  border-radius: 5px;
+  padding: 5px;
+  background: transparent;
+  font-family: inherit;
+}

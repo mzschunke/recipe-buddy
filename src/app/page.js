@@ -1,8 +1,7 @@
 import Search from "../../components/Search";
 import styles from "./Homepage.module.css";
-import Image from "next/image";
-import dices from "../../lib/dices.png";
 import RecipesButton from "../../components/MyRecipesButton";
+import RandomMealButton from "../../components/RandomMealButton";
 
 export default function Home() {
   return (
@@ -12,16 +11,7 @@ export default function Home() {
       </div>
       <div className={styles["menu-container"]}>
         <RecipesButton />
-        <button className={styles["button"]}>
-          <Image
-            src={dices}
-            style={{ objectFit: "contain" }}
-            width={35}
-            height={35}
-            alt="Picture of dices"
-          ></Image>
-          <p className={styles["link-text"]}>Random meal</p>
-        </button>
+        <RandomMealButton />
       </div>
       <Search />
     </>
