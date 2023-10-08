@@ -3,7 +3,7 @@
 import Form from "../../../../components/Form";
 import { useRouter } from "next/navigation";
 import useSWRMutation from "swr/mutation";
-import styles from "../RecipeList.module.css";
+import styles from "../RecipePage.module.css";
 import Link from "next/link";
 
 async function sendRequest(url, { arg }) {
