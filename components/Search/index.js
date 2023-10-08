@@ -14,7 +14,6 @@ const fetcher = (...args) => fetch(...args).then((res) => res.json());
 const URL = "https://www.themealdb.com/api/json/v1/1/search.php?s=";
 
 export default function Search() {
-  const [showDetails, setShowDetails] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const { data, error, isValidating } = useSWR(
     searchQuery ? `${URL}${searchQuery}` : null,

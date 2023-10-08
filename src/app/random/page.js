@@ -1,10 +1,11 @@
 import Link from "next/link";
-import RecipeList from "../../../components/RecipeList";
-import styles from "./RecipePage.module.css";
 import Image from "next/image";
+import styles from "../recipes/RecipePage.module.css";
 import home from "../../../lib/home.png";
+import RandomMeal from "../../../components/RandomMeal";
+import RandomMealButton from "../../../components/RandomMealButton";
 
-export default async function RecipePage() {
+export default async function RandomPage() {
   return (
     <>
       <Link href="/" className={styles["home-button"]}>
@@ -16,10 +17,7 @@ export default async function RecipePage() {
           alt="Picture of my recipes"
         ></Image>
       </Link>
-      <RecipeList />
-      <Link href="/recipes/create" className={styles["add-button"]}>
-        add recipe
-      </Link>
+      <RandomMeal />
     </>
   );
 }

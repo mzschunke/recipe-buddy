@@ -1,0 +1,17 @@
+.header-container {
+  display: flex;
+  justify-content: center;
+}
+
+.menu-container {
+  display: flex;
+  justify-content: center;
+  gap: 10%;
+  padding: 1rem;
+}
+
+.title {
+  font-size: 3rem;
+  padding: 1rem;
+  color: green;
+}

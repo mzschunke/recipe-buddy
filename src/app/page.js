@@ -1,11 +1,20 @@
-import Link from "next/link";
+"use client";
+
 import Search from "../../components/Search";
+import styles from "./Homepage.module.css";
+import RecipesButton from "../../components/MyRecipesButton";
+import RandomMealButton from "../../components/RandomMealButton";
 
 export default function Home() {
   return (
     <>
-      <h1>Welcome to the ultimate Recipe App</h1>
-      <Link href="/recipes">My recipes</Link>
+      <div className={styles["header-container"]}>
+        <h1 className={styles["title"]}>Recipe Buddy</h1>
+      </div>
+      <div className={styles["menu-container"]}>
+        <RecipesButton />
+        <RandomMealButton />
+      </div>
       <Search />
     </>
   );
