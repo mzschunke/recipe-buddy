@@ -25,7 +25,7 @@ export default function Modal({ recipe }) {
 
   return (
     <div>
-      <Button variant="outlined" onClick={handleClickOpen}>
+      <Button variant="text" onClick={handleClickOpen}>
         Show recipe
       </Button>
       <Dialog open={open} onClose={handleClose} scroll="paper" maxWidth="sm">
