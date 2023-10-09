@@ -7,11 +7,13 @@ import styles from "./RandomMeal.module.css";
 import Loader from "../Loader";
 import Modal from "../Modal";
 import { Button } from "@mui/material";
+import { BsFillSuitHeartFill } from "react-icons/bs";
+import { handleAddToFavorites } from "../../utilities/favorite";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 const URL = "https://www.themealdb.com/api/json/v1/1/random.php";
 
-export default function RandomMeal() {
+export default function RandomMeal({ recipe }) {
   const [refreshKey, setRefreshKey] = useState(0);
   const { data, error, isLoading } = useSWR(
     `${URL}?key=${refreshKey}`,
@@ -32,7 +34,7 @@ export default function RandomMeal() {
 
   if (data) {
     const { meals } = data;
-    const randomMeal = meals[0];
+    const recipe = meals[0];
     const image = data.meals[0].strMealThumb;
 
     return (
@@ -45,10 +47,16 @@ export default function RandomMeal() {
               height={200}
               alt="Picture of a random meal"
             />
-            <h3>{randomMeal.strMeal}</h3>
-            <p>Category: {randomMeal.strCategory}</p>
-            <p>Area: {randomMeal.strArea}</p>
-            <Modal recipe={randomMeal} />
+            <button
+              onClick={() => handleAddToFavorites(recipe)}
+              className={styles["button"]}
+            >
+              <BsFillSuitHeartFill className={styles["heart-icon"]} size={50} />
+            </button>
+            <h3>{recipe.strMeal}</h3>
+            <p>Category: {recipe.strCategory}</p>
+            <p>Area: {recipe.strArea}</p>
+            <Modal recipe={recipe} />
           </div>
           <Button variant="contained" onClick={handleRefresh}>
             Another Meal
