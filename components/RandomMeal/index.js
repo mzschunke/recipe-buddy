@@ -13,7 +13,7 @@ import { handleAddToFavorites } from "../../utilities/favorite";
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 const URL = "https://www.themealdb.com/api/json/v1/1/random.php";
 
-export default function RandomMeal({ recipe }) {
+export default function RandomMeal() {
   const [refreshKey, setRefreshKey] = useState(0);
   const { data, error, isLoading } = useSWR(
     `${URL}?key=${refreshKey}`,
