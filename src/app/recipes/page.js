@@ -13,7 +13,7 @@ export default async function RecipePage() {
           style={{ objectFit: "contain" }}
           width={35}
           height={35}
-          alt="Picture of my recipes"
+          alt="Home Button"
         ></Image>
       </Link>
       <RecipeList />

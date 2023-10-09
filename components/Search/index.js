@@ -8,6 +8,7 @@ import Image from "next/image";
 import sample from "../../lib/sample.jpg";
 import { BsFillSuitHeartFill } from "react-icons/bs";
 import Modal from "../Modal";
+import { handleAddToFavorites } from "../../utilities/favorite";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
@@ -22,36 +23,6 @@ export default function Search() {
 
   const handleInputChange = (event) => {
     setSearchQuery(event.target.value);
-  };
-  async function addToFavorites(recipe) {
-    try {
-      const recipeData = {
-        strMeal: recipe.strMeal,
-        strCategory: recipe.strCategory,
-        strArea: recipe.strArea,
-        strMealThumb: recipe.strMealThumb,
-        strInstructions: recipe.strInstructions,
-      };
-
-      const response = await fetch("/api/recipes", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(recipeData),
-      });
-
-      if (!response.ok) {
-        throw new Error("Failed to add recipe");
-      }
-    } catch (error) {
-      console.error(error);
-    }
-  }
-
-  const handleAddToFavorites = async (recipe) => {
-    await addToFavorites(recipe);
-    alert("Recipe has been added to your favorites");
   };
 
   if (error) return <div>Failed to load</div>;
@@ -104,7 +75,7 @@ export default function Search() {
                       size={50}
                     />
                   </button>
-                  <h2>{recipe.strMeal}</h2>
+                  <h3>{recipe.strMeal}</h3>
                   <p>Category: {recipe.strCategory}</p>
                   <p>Area: {recipe.strArea}</p>
                   <Modal recipe={recipe} />
