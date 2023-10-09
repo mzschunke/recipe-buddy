@@ -1,16 +1,26 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import useSWR from "swr";
 import styles from "./RandomMeal.module.css";
 import Loader from "../Loader";
 import Modal from "../Modal";
+import { Button } from "@mui/material";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 const URL = "https://www.themealdb.com/api/json/v1/1/random.php";
 
 export default function RandomMeal() {
-  const { data, error, isLoading } = useSWR(URL, fetcher);
+  const [refreshKey, setRefreshKey] = useState(0);
+  const { data, error, isLoading } = useSWR(
+    `${URL}?key=${refreshKey}`,
+    fetcher
+  );
+
+  const handleRefresh = () => {
+    setRefreshKey((prevKey) => prevKey + 1);
+  };
 
   if (error) {
     return <div>Error fetching data</div>;
@@ -28,7 +38,6 @@ export default function RandomMeal() {
     return (
       <>
         <div className={styles["random-recipe-container"]}>
-          <h2>Random Meal</h2>
           <div className={styles["product-card"]}>
             <Image
               src={image}
@@ -41,6 +50,9 @@ export default function RandomMeal() {
             <p>Area: {randomMeal.strArea}</p>
             <Modal recipe={randomMeal} />
           </div>
+          <Button variant="contained" onClick={handleRefresh}>
+            Another Meal
+          </Button>
         </div>
       </>
     );

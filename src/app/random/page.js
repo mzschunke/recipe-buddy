@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import styles from "../recipes/RecipePage.module.css";
+import styles from "./Random.module.css";
 import home from "../../../lib/home.png";
 import RandomMeal from "../../../components/RandomMeal";
 
@@ -16,6 +16,9 @@ export default async function RandomPage() {
           alt="Home Button"
         ></Image>
       </Link>
+      <div className={styles["title-container"]}>
+        <h2 className={styles["title"]}>Random Meal</h2>
+      </div>
       <RandomMeal />
     </>
   );
