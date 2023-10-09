@@ -3,7 +3,6 @@ import Image from "next/image";
 import styles from "../recipes/RecipePage.module.css";
 import home from "../../../lib/home.png";
 import RandomMeal from "../../../components/RandomMeal";
-import RandomMealButton from "../../../components/RandomMealButton";
 
 export default async function RandomPage() {
   return (
@@ -14,7 +13,7 @@ export default async function RandomPage() {
           style={{ objectFit: "contain" }}
           width={35}
           height={35}
-          alt="Picture of my recipes"
+          alt="Home Button"
         ></Image>
       </Link>
       <RandomMeal />

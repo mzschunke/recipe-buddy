@@ -104,7 +104,7 @@ export default function Search() {
                       size={50}
                     />
                   </button>
-                  <h2>{recipe.strMeal}</h2>
+                  <h3>{recipe.strMeal}</h3>
                   <p>Category: {recipe.strCategory}</p>
                   <p>Area: {recipe.strArea}</p>
                   <Modal recipe={recipe} />
