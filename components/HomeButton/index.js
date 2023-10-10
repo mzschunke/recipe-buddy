@@ -6,7 +6,7 @@ export default async function HomeButton() {
   return (
     <>
       <Link href="/" className={styles["home-button"]}>
-        <BiSolidHome size={30} color="lightseagreen" />
+        <BiSolidHome size={35} color="lightseagreen" />
       </Link>
     </>
   );

@@ -3,8 +3,8 @@
 import Form from "../../../../components/Form";
 import { useRouter } from "next/navigation";
 import useSWRMutation from "swr/mutation";
-import styles from "../RecipePage.module.css";
-import Link from "next/link";
+import styles from "./Create.module.css";
+import BackButton from "../../../../components/BackButton";
 
 async function sendRequest(url, { arg }) {
   const response = await fetch(url, {
@@ -27,10 +27,8 @@ export default function CreateRecipe() {
   }
   return (
     <>
+      <BackButton />
       <h2 className={styles["title"]}>Add Recipe:</h2>
-      <Link href="/recipes" className={styles["back-button"]}>
-        Go back
-      </Link>
       <Form onSubmit={addRecipe} formName={"add-recipe"} requestType="POST" />
     </>
   );
