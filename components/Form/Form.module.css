@@ -34,7 +34,7 @@
 }
 
 .button {
-  background-color: lightsalmon;
+  background-color: lightseagreen;
   padding: 0.8rem 1.5rem;
   border-radius: 0.6rem;
   color: black;
@@ -44,7 +44,7 @@
 }
 
 .more-button {
-  background-color: rgb(31, 195, 245);
+  background-color: lightsalmon;
   padding: 0.8rem 1.5rem;
   border-radius: 0.6rem;
   margin-bottom: 1rem;

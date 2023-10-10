@@ -6,9 +6,8 @@ import styles from "./Search.module.css";
 import Loader from "../Loader";
 import Image from "next/image";
 import sample from "../../lib/sample.jpg";
-import { BsFillSuitHeartFill } from "react-icons/bs";
 import Modal from "../Modal";
-import { handleAddToFavorites } from "../../utilities/favorite";
+import FavoriteButton from "../FavoriteButton";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
@@ -66,15 +65,7 @@ export default function Search() {
                       alt={recipe.strMeal}
                     />
                   )}
-                  <button
-                    onClick={() => handleAddToFavorites(recipe)}
-                    className={styles["button"]}
-                  >
-                    <BsFillSuitHeartFill
-                      className={styles["heart-icon"]}
-                      size={50}
-                    />
-                  </button>
+                  <FavoriteButton recipe={recipe} />
                   <h3>{recipe.strMeal}</h3>
                   <p>Category: {recipe.strCategory}</p>
                   <p>Area: {recipe.strArea}</p>

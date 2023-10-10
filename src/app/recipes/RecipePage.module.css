@@ -8,16 +8,10 @@
   position: fixed;
   bottom: 25px;
   right: 25px;
-  background-color: lightsalmon;
+  background-color: lightseagreen;
   padding: 0.8rem 1rem;
   border-radius: 0.6rem;
   color: black;
   text-decoration: none;
   font-weight: bold;
-}
-
-.home-button {
-  display: flex;
-  margin-top: 0.5rem;
-  margin-left: 0.5rem;
 }

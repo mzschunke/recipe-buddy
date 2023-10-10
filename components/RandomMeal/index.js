@@ -7,8 +7,7 @@ import styles from "./RandomMeal.module.css";
 import Loader from "../Loader";
 import Modal from "../Modal";
 import { Button } from "@mui/material";
-import { BsFillSuitHeartFill } from "react-icons/bs";
-import { handleAddToFavorites } from "../../utilities/favorite";
+import FavoriteButton from "../FavoriteButton";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 const URL = "https://www.themealdb.com/api/json/v1/1/random.php";
@@ -47,12 +46,7 @@ export default function RandomMeal() {
               height={200}
               alt="Picture of a random meal"
             />
-            <button
-              onClick={() => handleAddToFavorites(recipe)}
-              className={styles["button"]}
-            >
-              <BsFillSuitHeartFill className={styles["heart-icon"]} size={50} />
-            </button>
+            <FavoriteButton recipe={recipe} />
             <h3>{recipe.strMeal}</h3>
             <p>Category: {recipe.strCategory}</p>
             <p>Area: {recipe.strArea}</p>

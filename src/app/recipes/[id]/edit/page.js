@@ -1,11 +1,11 @@
 "use client";
 
-import Link from "next/link";
 import useSWR from "swr";
 import Form from "../../../../../components/Form";
 import { useRouter } from "next/navigation";
 import styles from "./Edit.module.css";
 import Loader from "../../../../../components/Loader";
+import BackButton from "../../../../../components/BackButton";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
@@ -37,11 +37,9 @@ export default function EditPage({ params }) {
 
   return (
     <>
+      <BackButton />
       <div className={styles["header-container"]}>
         <h2>Edit Recipe</h2>
-        <Link href={`/recipes/${id}`} passHref legacyBehavior>
-          back
-        </Link>
       </div>
       {data ? (
         <Form

@@ -1,0 +1,16 @@
+.button {
+  background-color: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.heart-icon {
+  color: lightseagreen;
+  width: 2rem;
+  position: absolute;
+  top: 0.3rem;
+  right: 0.6rem;
+  width: 3rem;
+  border: none;
+}
