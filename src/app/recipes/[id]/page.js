@@ -32,7 +32,7 @@ export default function RecipePage({ params }) {
       .then((response) => {
         if (response.ok) {
           router.push("/recipes");
-          console.log("Recipe deleted.");
+          alert("Recipe deleted.");
         } else {
           console.error("Failed to delete recipe.");
         }
