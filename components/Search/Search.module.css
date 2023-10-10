@@ -1,7 +1,6 @@
 .search-container {
   display: flex;
   justify-content: center;
-  border-bottom: 2px dotted black;
   padding: 1rem;
   gap: 0.5rem;
 }
