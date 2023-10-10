@@ -31,7 +31,10 @@ async function addToFavorites(recipe) {
     });
 
     if (!response.ok) {
+      alert("This Recipe is already in your favorites!");
       throw new Error("Failed to add recipe");
+    } else {
+      alert("Recipe has been added to your favorites");
     }
   } catch (error) {
     console.error(error);
@@ -40,5 +43,4 @@ async function addToFavorites(recipe) {
 
 export const handleAddToFavorites = async (recipe) => {
   await addToFavorites(recipe);
-  alert("Recipe has been added to your favorites");
 };
