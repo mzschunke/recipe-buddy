@@ -7,7 +7,7 @@ import styles from "./RandomMeal.module.css";
 import Loader from "../Loader";
 import Modal from "../Modal";
 import { Button } from "@mui/material";
-import { BsFillSuitHeartFill } from "react-icons/bs";
+import { BsFillSuitHeartFill, BiHeart } from "react-icons/bs";
 import { handleAddToFavorites } from "../../utilities/favorite";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
