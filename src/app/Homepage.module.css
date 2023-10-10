@@ -13,5 +13,6 @@
 .title {
   font-size: 3rem;
   padding: 1rem;
-  color: green;
+  color: lightseagreen;
+  text-decoration-line: underline;
 }

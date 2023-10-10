@@ -6,7 +6,7 @@ export default function BackButton() {
   return (
     <>
       <Link href={"/recipes"} className={styles["back-button"]}>
-        <IoMdArrowRoundBack size={35} color="green" />
+        <IoMdArrowRoundBack size={35} color="lightseagreen" />
       </Link>
     </>
   );

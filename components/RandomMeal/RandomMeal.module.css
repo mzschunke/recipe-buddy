@@ -30,12 +30,3 @@
   padding: 0;
   cursor: pointer;
 }
-
-.heart-icon {
-  color: #e2463a;
-  width: 2rem;
-  position: absolute;
-  top: 0.3rem;
-  right: 0.6rem;
-  width: 3rem;
-}
