@@ -2,9 +2,11 @@
 
 import styles from "./Form.module.css";
 import { useState, useEffect } from "react";
+import Image from "next/image";
 
 export default function Form({ formName, defaultData, onSubmit }) {
   const [ingredientFields, setIngredientFields] = useState([]);
+  const [preview, setPreview] = useState(null);
 
   useEffect(() => {
     if (defaultData) {
@@ -30,6 +32,11 @@ export default function Form({ formName, defaultData, onSubmit }) {
   const addIngredientField = () => {
     setIngredientFields([...ingredientFields, { ingredient: "", measure: "" }]);
   };
+
+  function handleImageChange(event) {
+    const file = event.target.files[0];
+    setPreview(URL.createObjectURL(file));
+  }
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -78,6 +85,22 @@ export default function Form({ formName, defaultData, onSubmit }) {
         className={styles["input"]}
         required={true}
       />
+      <label htmlFor="image">Image:</label>
+      <input
+        type="file"
+        id="image"
+        name="image"
+        accept="image/*"
+        onChange={handleImageChange}
+      />
+      {preview && (
+        <Image
+          src={preview}
+          alt={`Preview of recipe`}
+          width="200"
+          height="200"
+        />
+      )}
       <label htmlFor="instructions" className={styles["label"]}>
         Instructions:
       </label>
