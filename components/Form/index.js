@@ -41,6 +41,21 @@ export default function Form({ formName, defaultData, onSubmit }) {
   async function handleSubmit(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
+    const imageFile = event.target.image.files[0];
+    formData.append("file", imageFile);
+    formData.append("upload_preset", "my-uploads");
+    try {
+      const response = await fetch(
+        `https://api.cloudinary.com/v1_1/${process.env.CLOUDINARY_CLOUD_NAME}/upload`,
+        {
+          method: "POST",
+          body: formData,
+        }
+      ).then((response) => response.json());
+      formData.append("strMealThumb", response.secure_url);
+    } catch (error) {
+      error;
+    }
     const data = Object.fromEntries(formData);
     onSubmit(data);
   }
