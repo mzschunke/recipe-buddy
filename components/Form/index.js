@@ -100,13 +100,16 @@ export default function Form({ formName, defaultData, onSubmit }) {
         className={styles["input"]}
         required={true}
       />
-      <label htmlFor="image">Image:</label>
+      <label htmlFor="image" className={styles["label"]}>
+        Image:
+      </label>
       <input
         type="file"
         id="image"
         name="image"
         accept="image/*"
         onChange={handleImageChange}
+        className={styles["input-image"]}
       />
       {preview && (
         <Image
