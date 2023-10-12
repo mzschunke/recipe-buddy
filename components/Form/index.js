@@ -2,9 +2,11 @@
 
 import styles from "./Form.module.css";
 import { useState, useEffect } from "react";
+import Image from "next/image";
 
 export default function Form({ formName, defaultData, onSubmit }) {
   const [ingredientFields, setIngredientFields] = useState([]);
+  const [preview, setPreview] = useState(null);
 
   useEffect(() => {
     if (defaultData) {
@@ -31,9 +33,29 @@ export default function Form({ formName, defaultData, onSubmit }) {
     setIngredientFields([...ingredientFields, { ingredient: "", measure: "" }]);
   };
 
+  function handleImageChange(event) {
+    const file = event.target.files[0];
+    setPreview(URL.createObjectURL(file));
+  }
+
   async function handleSubmit(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
+    const imageFile = event.target.image.files[0];
+    formData.append("file", imageFile);
+    formData.append("upload_preset", "my-uploads");
+    try {
+      const response = await fetch(
+        `https://api.cloudinary.com/v1_1/${process.env.CLOUDINARY_CLOUD_NAME}/upload`,
+        {
+          method: "POST",
+          body: formData,
+        }
+      ).then((response) => response.json());
+      formData.append("strMealThumb", response.secure_url);
+    } catch (error) {
+      error;
+    }
     const data = Object.fromEntries(formData);
     onSubmit(data);
   }
@@ -78,6 +100,33 @@ export default function Form({ formName, defaultData, onSubmit }) {
         className={styles["input"]}
         required={true}
       />
+      <label htmlFor="image" className={styles["label"]}>
+        Image:
+      </label>
+      <input
+        type="file"
+        id="image"
+        name="image"
+        accept="image/*"
+        onChange={handleImageChange}
+        className={styles["input-image"]}
+      />
+      {preview && (
+        <Image
+          src={preview}
+          alt={`Preview of recipe`}
+          width="200"
+          height="200"
+        />
+      )}
+      {defaultData && (
+        <Image
+          src={defaultData?.strMealThumb}
+          alt={`Preview of recipe`}
+          width="200"
+          height="200"
+        />
+      )}
       <label htmlFor="instructions" className={styles["label"]}>
         Instructions:
       </label>

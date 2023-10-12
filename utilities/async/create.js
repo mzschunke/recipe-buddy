@@ -1,4 +1,4 @@
-async function addToFavorites(recipe) {
+async function addRecipeToDatabase(recipe) {
   try {
     const ingredients = [];
 
@@ -31,14 +31,16 @@ async function addToFavorites(recipe) {
     });
 
     if (!response.ok) {
-      throw new Error("Failed to add recipe");
+      alert("Failed to add the recipe to your favorites.");
+      throw new Error("Failed to add recipe to the database");
+    } else {
+      alert("Recipe has been added! =)");
     }
   } catch (error) {
     console.error(error);
   }
 }
 
-export const handleAddToFavorites = async (recipe) => {
-  await addToFavorites(recipe);
-  alert("Recipe has been added to your favorites");
+export const handleAddRecipeToDatabase = async (recipe) => {
+  await addRecipeToDatabase(recipe);
 };

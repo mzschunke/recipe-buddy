@@ -11,6 +11,10 @@
   margin-bottom: 0.5rem;
 }
 
+.input-image {
+  padding: 0.5rem 0;
+}
+
 .label {
   font-weight: bold;
   margin-bottom: 0.2rem;
