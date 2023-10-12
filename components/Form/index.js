@@ -119,6 +119,14 @@ export default function Form({ formName, defaultData, onSubmit }) {
           height="200"
         />
       )}
+      {defaultData && (
+        <Image
+          src={defaultData?.strMealThumb}
+          alt={`Preview of recipe`}
+          width="200"
+          height="200"
+        />
+      )}
       <label htmlFor="instructions" className={styles["label"]}>
         Instructions:
       </label>

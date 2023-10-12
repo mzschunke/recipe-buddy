@@ -25,6 +25,7 @@ export default function CreateRecipe() {
     await trigger(recipe);
     router.push("/recipes");
   }
+
   return (
     <>
       <BackButton />

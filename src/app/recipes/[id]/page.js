@@ -6,7 +6,6 @@ import { useRouter } from "next/navigation";
 import useSWR from "swr";
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import sample from "../../../../lib/sample.jpg";
 import RecipeIngredients from "../../../../components/RecipeIngredients";
 import RecipeInstructions from "../../../../components/RecipeInstructions";
 import Loader from "../../../../components/Loader";
