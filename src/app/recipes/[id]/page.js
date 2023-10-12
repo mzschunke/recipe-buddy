@@ -55,7 +55,7 @@ export default function RecipePage({ params }) {
             </div>
             <div className={styles["image-container"]}>
               <Image
-                src={currentRecipe.strMealThumb || sample}
+                src={currentRecipe.strMealThumb}
                 width={325}
                 height={325}
                 style={{ objectFit: "contain" }}
