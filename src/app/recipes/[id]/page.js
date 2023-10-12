@@ -3,28 +3,17 @@
 import styles from "./Recipes.module.css";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import useSWR from "swr";
-import { useState, useEffect } from "react";
 import Image from "next/image";
 import RecipeIngredients from "../../../../components/RecipeIngredients";
 import RecipeInstructions from "../../../../components/RecipeInstructions";
 import Loader from "../../../../components/Loader";
 import BackButton from "../../../../components/BackButton";
-
-const fetcher = (...args) => fetch(...args).then((res) => res.json());
+import useRecipeData from "../../../../utilities/hooks/fetchdata";
 
 export default function RecipePage({ params }) {
-  const { data } = useSWR("/api/recipes", fetcher);
-  const [currentRecipe, setCurrentRecipe] = useState(null);
-  const router = useRouter();
   const id = params.id;
-
-  useEffect(() => {
-    if (data) {
-      const foundRecipe = data.find((recipe) => recipe._id === id);
-      setCurrentRecipe(foundRecipe);
-    }
-  }, [data, id]);
+  const currentRecipe = useRecipeData(id);
+  const router = useRouter();
 
   async function deleteRecipe() {
     await fetch(`/api/recipes/${id}`, { method: "DELETE" })
