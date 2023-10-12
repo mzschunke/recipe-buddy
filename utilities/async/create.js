@@ -31,10 +31,10 @@ async function addRecipeToDatabase(recipe) {
     });
 
     if (!response.ok) {
-      alert("Failed to add the recipe to the database.");
+      alert("Failed to add the recipe to your favorites.");
       throw new Error("Failed to add recipe to the database");
     } else {
-      alert("Recipe has been added to the database.");
+      alert("Recipe has been added! =)");
     }
   } catch (error) {
     console.error(error);
