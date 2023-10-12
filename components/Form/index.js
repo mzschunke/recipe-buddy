@@ -10,22 +10,7 @@ export default function Form({ formName, defaultData, onSubmit }) {
 
   useEffect(() => {
     if (defaultData) {
-      const ingredients = [];
-      for (let i = 1; i <= 20; i++) {
-        const ingredient = defaultData[`strIngredient${i}`];
-        const measure = defaultData[`strMeasure${i}`];
-        if (
-          ingredient !== "" &&
-          ingredient !== null &&
-          ingredient !== undefined &&
-          measure !== "" &&
-          measure !== null &&
-          measure !== undefined
-        ) {
-          ingredients.push({ ingredient, measure });
-        }
-      }
-      setIngredientFields([...ingredients]);
+      setIngredientFields([...defaultData.ingredients]);
     }
   }, [defaultData]);
 
@@ -35,26 +20,32 @@ export default function Form({ formName, defaultData, onSubmit }) {
 
   function handleImageChange(event) {
     const file = event.target.files[0];
-    setPreview(URL.createObjectURL(file));
+    if (file && file.type.startsWith("image/")) {
+      setPreview(URL.createObjectURL(file));
+    } else {
+      setPreview(null);
+    }
   }
 
   async function handleSubmit(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
     const imageFile = event.target.image.files[0];
-    formData.append("file", imageFile);
-    formData.append("upload_preset", "my-uploads");
-    try {
-      const response = await fetch(
-        `https://api.cloudinary.com/v1_1/${process.env.CLOUDINARY_CLOUD_NAME}/upload`,
-        {
-          method: "POST",
-          body: formData,
-        }
-      ).then((response) => response.json());
-      formData.append("strMealThumb", response.secure_url);
-    } catch (error) {
-      error;
+    if (imageFile) {
+      formData.append("file", imageFile);
+      formData.append("upload_preset", "my-uploads");
+      try {
+        const response = await fetch(
+          `https://api.cloudinary.com/v1_1/${process.env.CLOUDINARY_CLOUD_NAME}/upload`,
+          {
+            method: "POST",
+            body: formData,
+          }
+        ).then((response) => response.json());
+        formData.append("strMealThumb", response.secure_url);
+      } catch (error) {
+        error;
+      }
     }
     const data = Object.fromEntries(formData);
     onSubmit(data);
@@ -141,13 +132,11 @@ export default function Form({ formName, defaultData, onSubmit }) {
       ></textarea>
       {ingredientFields.map((field, index) => (
         <div key={index} className={styles["ingredient-container"]}>
-          <label htmlFor={`ingredient${index + 1}`} className={styles["label"]}>
-            Ingredient:
-          </label>
+          <label>Ingredient:</label>
           <input
             id={`ingredient${index + 1}`}
-            name={`strIngredient${index + 1}`}
             type="text"
+            name={`ingredients[${index}].ingredient`}
             className={styles["input"]}
             value={field.ingredient || ""}
             onChange={(e) => {
@@ -156,13 +145,10 @@ export default function Form({ formName, defaultData, onSubmit }) {
               setIngredientFields(updatedFields);
             }}
           />
-          <label htmlFor={`measure${index + 1}`} className={styles["label"]}>
-            Measure:
-          </label>
+          <label>Measure:</label>
           <input
-            id={`measure${index + 1}`}
-            name={`strMeasure${index + 1}`}
             type="text"
+            name={`ingredients[${index}].measure`}
             className={styles["input"]}
             value={field.measure || ""}
             onChange={(e) => {

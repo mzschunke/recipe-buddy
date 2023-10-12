@@ -26,8 +26,8 @@ export default function EditPage({ params }) {
       if (!response.ok) {
         throw new Error("Something went wrong!");
       }
-      console.log("Recipe edited successfully!");
       router.push(`/recipes/${id}`);
+      alert("Recipe edited successfully!");
     } catch (error) {
       console.error(error);
     }
