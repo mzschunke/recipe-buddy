@@ -10,6 +10,7 @@ import Loader from "../../../../components/Loader";
 import BackButton from "../../../../components/BackButton";
 import useRecipeData from "../../../../utilities/hooks/fetchdata";
 import { handleDeleteRecipe } from "../../../../utilities/async/delete";
+import sample from "../../../../lib/sample.jpg";
 
 export default function RecipePage({ params }) {
   const id = params.id;
@@ -33,13 +34,23 @@ export default function RecipePage({ params }) {
               <p>Origin: {currentRecipe.strArea}</p>
             </div>
             <div className={styles["image-container"]}>
-              <Image
-                src={currentRecipe.strMealThumb}
-                width={325}
-                height={325}
-                style={{ objectFit: "contain" }}
-                alt={currentRecipe.strMeal}
-              />
+              {currentRecipe.strMealThumb ? (
+                <Image
+                  src={currentRecipe.strMealThumb}
+                  width={325}
+                  height={325}
+                  style={{ objectFit: "contain" }}
+                  alt={currentRecipe.strMeal}
+                />
+              ) : (
+                <Image
+                  src={sample}
+                  width={325}
+                  height={325}
+                  style={{ objectFit: "contain" }}
+                  alt={currentRecipe.strMeal}
+                />
+              )}
             </div>
             <RecipeIngredients recipe={currentRecipe} />
             <RecipeInstructions recipe={currentRecipe} />
