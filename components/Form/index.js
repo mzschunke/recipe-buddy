@@ -132,11 +132,11 @@ export default function Form({ formName, defaultData, onSubmit }) {
       ></textarea>
       {ingredientFields.map((field, index) => (
         <div key={index} className={styles["ingredient-container"]}>
-          <label>Ingredient:</label>
+          <label htmlFor={`ingredient${index + 1}`}>Ingredient:</label>
           <input
             id={`ingredient${index + 1}`}
             type="text"
-            name={`ingredients[${index}].ingredient`}
+            name={`strIngredient${index + 1}`}
             className={styles["input"]}
             value={field.ingredient || ""}
             onChange={(e) => {
@@ -145,10 +145,10 @@ export default function Form({ formName, defaultData, onSubmit }) {
               setIngredientFields(updatedFields);
             }}
           />
-          <label>Measure:</label>
+          <label htmlFor={`measure${index + 1}`}>Measure:</label>
           <input
             type="text"
-            name={`ingredients[${index}].measure`}
+            name={`strMeasure${index + 1}`}
             className={styles["input"]}
             value={field.measure || ""}
             onChange={(e) => {
