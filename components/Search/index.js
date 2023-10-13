@@ -5,7 +5,6 @@ import useSWR from "swr";
 import styles from "./Search.module.css";
 import Loader from "../Loader";
 import Image from "next/image";
-import sample from "../../lib/sample.jpg";
 import Modal from "../Modal";
 import FavoriteButton from "../FavoriteButton";
 
@@ -48,23 +47,13 @@ export default function Search() {
             <ul className={styles["product-list"]}>
               {data.meals.map((recipe) => (
                 <li key={recipe.idMeal} className={styles["product-card"]}>
-                  {recipe.strMealThumb ? (
-                    <Image
-                      src={recipe.strMealThumb}
-                      width={250}
-                      height={250}
-                      style={{ objectFit: "contain" }}
-                      alt={recipe.strMeal}
-                    />
-                  ) : (
-                    <Image
-                      src={sample}
-                      width={250}
-                      height={250}
-                      style={{ objectFit: "contain" }}
-                      alt={recipe.strMeal}
-                    />
-                  )}
+                  <Image
+                    src={recipe.strMealThumb}
+                    width={250}
+                    height={250}
+                    style={{ objectFit: "contain" }}
+                    alt={recipe.strMeal}
+                  />
                   <FavoriteButton recipe={recipe} />
                   <h3>{recipe.strMeal}</h3>
                   <p>Category: {recipe.strCategory}</p>
