@@ -9,25 +9,17 @@ import RecipeInstructions from "../../../../components/RecipeInstructions";
 import Loader from "../../../../components/Loader";
 import BackButton from "../../../../components/BackButton";
 import useRecipeData from "../../../../utilities/hooks/fetchdata";
+import { handleDeleteRecipe } from "../../../../utilities/async/delete";
+import sample from "../../../../lib/sample.jpg";
 
 export default function RecipePage({ params }) {
   const id = params.id;
   const currentRecipe = useRecipeData(id);
   const router = useRouter();
 
-  async function deleteRecipe() {
-    await fetch(`/api/recipes/${id}`, { method: "DELETE" })
-      .then((response) => {
-        if (response.ok) {
-          router.push("/recipes");
-          alert("Recipe deleted.");
-        } else {
-          console.error("Failed to delete recipe.");
-        }
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
+  async function deleteRecipe(recipe, id) {
+    await handleDeleteRecipe(recipe, id);
+    router.push("/recipes");
   }
 
   return (
@@ -42,13 +34,23 @@ export default function RecipePage({ params }) {
               <p>Origin: {currentRecipe.strArea}</p>
             </div>
             <div className={styles["image-container"]}>
-              <Image
-                src={currentRecipe.strMealThumb}
-                width={325}
-                height={325}
-                style={{ objectFit: "contain" }}
-                alt={currentRecipe.strMeal}
-              />
+              {currentRecipe.strMealThumb ? (
+                <Image
+                  src={currentRecipe.strMealThumb}
+                  width={325}
+                  height={325}
+                  style={{ objectFit: "contain" }}
+                  alt={currentRecipe.strMeal}
+                />
+              ) : (
+                <Image
+                  src={sample}
+                  width={325}
+                  height={325}
+                  style={{ objectFit: "contain" }}
+                  alt={currentRecipe.strMeal}
+                />
+              )}
             </div>
             <RecipeIngredients recipe={currentRecipe} />
             <RecipeInstructions recipe={currentRecipe} />
@@ -58,7 +60,7 @@ export default function RecipePage({ params }) {
               </Link>
               <Link
                 href={`/recipes/`}
-                onClick={deleteRecipe}
+                onClick={(recipe) => deleteRecipe(recipe, id)}
                 className={styles["buttons"]}
               >
                 Delete recipe
