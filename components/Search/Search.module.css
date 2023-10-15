@@ -3,6 +3,7 @@
   justify-content: center;
   padding: 1rem;
   gap: 0.5rem;
+  color: lightseagreen;
 }
 
 .list-container {
@@ -31,6 +32,7 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: all 0.2s ease-in-out;
   gap: 0.6rem;
+  color: lightseagreen;
 }
 
 .no-result {

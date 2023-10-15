@@ -15,7 +15,7 @@ export default function RandomMealButton() {
         height={39}
         alt="Picture of dices"
       ></Image>
-      <p className={styles["link-text"]}>Random meal</p>
+      <p className={styles["link-text"]}>Random recipe</p>
     </Link>
   );
 }

@@ -7,7 +7,7 @@ export default async function RandomPage() {
     <>
       <HomeButton />
       <div className={styles["title-container"]}>
-        <h2 className={styles["title"]}>Random Meal</h2>
+        <h2 className={styles["title"]}>Random Recipe 🪄</h2>
       </div>
       <RandomMeal />
     </>
