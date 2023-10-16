@@ -5,8 +5,8 @@ export default function RecipeInstructions({ recipe, customStyles }) {
     <section
       className={`${styles["instructions-container"]} ${customStyles?.container}`}
     >
-      <h3>Instructions:</h3>
-      <p>{recipe.strInstructions}</p>
+      <h3 className={styles["title"]}>Instructions:</h3>
+      <p className={styles["text-container"]}>{recipe.strInstructions}</p>
     </section>
   );
 }

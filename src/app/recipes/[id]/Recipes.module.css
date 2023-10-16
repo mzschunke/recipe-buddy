@@ -30,6 +30,7 @@
   gap: 0.3rem;
   font-weight: 500;
   width: 100%;
+  font-family: oswald;
 }
 
 .image-container {
@@ -46,11 +47,19 @@
   padding-bottom: 1rem;
 }
 
-.buttons {
+.edit-button {
   background-color: lightseagreen;
   padding: 0.8rem 1rem;
   border-radius: 0.6rem;
   color: black;
   text-decoration: none;
   font-weight: bold;
+  font-size: 1.5rem;
+  box-shadow: 1px 2px 2px black;
+  color: white;
+}
+
+.delete-button {
+  background-color: lightcoral;
+  composes: edit-button;
 }

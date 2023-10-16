@@ -8,6 +8,13 @@ html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
-  background-color: #f1ebeb;
+  background: rgb(248, 227, 227);
+  background: linear-gradient(
+    90deg,
+    rgba(248, 227, 227, 1) 0%,
+    rgba(241, 235, 235, 1) 49%,
+    rgba(248, 227, 227, 1) 100%,
+    rgba(241, 235, 235, 1) 100%
+  );
   font-size: 1.1rem;
 }

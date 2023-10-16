@@ -55,15 +55,18 @@ export default function RecipePage({ params }) {
             <RecipeIngredients recipe={currentRecipe} />
             <RecipeInstructions recipe={currentRecipe} />
             <div className={styles["button-container"]}>
-              <Link href={`/recipes/${id}/edit`} className={styles["buttons"]}>
-                Edit recipe
+              <Link
+                href={`/recipes/${id}/edit`}
+                className={styles["edit-button"]}
+              >
+                Edit Recipe
               </Link>
               <Link
                 href={`/recipes/`}
                 onClick={(recipe) => deleteRecipe(recipe, id)}
-                className={styles["buttons"]}
+                className={styles["delete-button"]}
               >
-                Delete recipe
+                Delete Recipe
               </Link>
             </div>
           </div>

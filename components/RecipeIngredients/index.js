@@ -19,7 +19,7 @@ export default function RecipeIngredients({ recipe, customStyles }) {
         Ingredients:
       </h3>
       <section
-        className={`${styles["ingredients-container2"]} ${customStyles?.container2}`}
+        className={`${styles["text-container"]} ${customStyles?.container2}`}
       >
         {recipe.ingredients ? (
           <ul>

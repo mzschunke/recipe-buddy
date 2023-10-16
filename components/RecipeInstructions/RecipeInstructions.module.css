@@ -7,3 +7,11 @@
   gap: 0.5rem;
   width: 100%;
 }
+
+.title {
+  font-size: 1.5rem;
+}
+
+.text-container {
+  font-family: oswald;
+}
