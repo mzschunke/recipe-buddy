@@ -4,9 +4,7 @@ import { useState } from "react";
 import useSWR from "swr";
 import styles from "./Search.module.css";
 import Loader from "../Loader";
-import Image from "next/image";
-import Modal from "../Modal";
-import FavoriteButton from "../FavoriteButton";
+import RecipeCard from "../RecipeCard";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
@@ -46,20 +44,7 @@ export default function Search() {
           <div className={styles["list-container"]}>
             <ul className={styles["product-list"]}>
               {data.meals.map((recipe) => (
-                <li key={recipe.idMeal} className={styles["product-card"]}>
-                  <Image
-                    src={recipe.strMealThumb}
-                    width={250}
-                    height={250}
-                    style={{ objectFit: "contain" }}
-                    alt={recipe.strMeal}
-                  />
-                  <FavoriteButton recipe={recipe} />
-                  <h3>{recipe.strMeal}</h3>
-                  <p>Category: {recipe.strCategory}</p>
-                  <p>Area: {recipe.strArea}</p>
-                  <Modal recipe={recipe} />
-                </li>
+                <RecipeCard recipe={recipe} key={recipe.idMeal} />
               ))}
             </ul>
           </div>

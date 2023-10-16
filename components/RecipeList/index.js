@@ -1,6 +1,6 @@
 "use client";
 
-import styles from "./RecipeCard.module.css";
+import styles from "./RecipeList.module.css";
 import useSWR from "swr";
 import Image from "next/image";
 import Link from "next/link";

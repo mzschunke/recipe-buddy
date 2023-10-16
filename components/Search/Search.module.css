@@ -18,28 +18,12 @@
   padding: 0;
 }
 
-.product-card {
-  background-color: rgb(255, 255, 255, 0.5);
-  border: 2px solid black;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  min-height: 45vh;
-  border-radius: 8px;
-  padding: 1rem;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: all 0.2s ease-in-out;
-  gap: 0.6rem;
-  color: lightseagreen;
-}
-
 .no-result {
   padding: 3rem;
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 1.5rem;
 }
 
 .button {

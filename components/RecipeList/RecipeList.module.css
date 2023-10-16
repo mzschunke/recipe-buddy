@@ -12,7 +12,7 @@
 
 .product-card {
   background-color: rgb(255, 255, 255, 0.5);
-  border: 2px solid black;
+  border: 2px solid lightseagreen;
   display: flex;
   flex-direction: column;
   justify-content: center;
