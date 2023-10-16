@@ -27,7 +27,7 @@ export default function EditPage({ params }) {
     <>
       <BackButton />
       <div className={styles["header-container"]}>
-        <h2>Edit Recipe</h2>
+        <h2 className={styles["title"]}>Edit Recipe</h2>
       </div>
       {data ? (
         <Form

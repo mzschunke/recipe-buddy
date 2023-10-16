@@ -164,7 +164,7 @@ export default function Form({ formName, defaultData, onSubmit }) {
         onClick={addIngredientField}
         className={styles["more-button"]}
       >
-        add more ingredients...
+        Add more ingredients...
       </button>
       <button type="submit" className={styles["button"]}>
         {defaultData ? "Update recipe" : "Add recipe"}
