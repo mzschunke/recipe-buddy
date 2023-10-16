@@ -14,3 +14,7 @@
   transition: all 0.2s ease-in-out;
   gap: 0.6rem;
 }
+
+.title {
+  font-size: 2rem;
+}

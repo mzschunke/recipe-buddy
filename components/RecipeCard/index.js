@@ -25,7 +25,7 @@ export default function RecipeCard({ recipe }) {
         />
       )}
       <FavoriteButton recipe={recipe} />
-      <h3>{recipe.strMeal}</h3>
+      <h3 className={styles["title"]}>{recipe.strMeal}</h3>
       <p>Category: {recipe.strCategory}</p>
       <p>Area: {recipe.strArea}</p>
       <Modal recipe={recipe} />

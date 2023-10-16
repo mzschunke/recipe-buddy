@@ -11,8 +11,8 @@ export default function RandomMealButton() {
       <Image
         src={dices}
         style={{ objectFit: "contain" }}
-        width={85}
-        height={85}
+        width={75}
+        height={75}
         alt="Picture of dices"
       ></Image>
       <p className={styles["link-text"]}>Random recipe</p>

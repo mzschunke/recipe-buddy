@@ -9,8 +9,8 @@ export default function RecipesButton() {
       <Image
         src={recipe}
         style={{ objectFit: "contain" }}
-        width={85}
-        height={85}
+        width={75}
+        height={75}
         alt="Picture of my recipes"
       ></Image>
       <p className={styles["link-text"]}>My recipes</p>
