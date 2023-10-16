@@ -26,13 +26,13 @@ export default function Search() {
   return (
     <>
       <div className={styles["search-container"]}>
-        Look for a recipe:
         <input
           type="text"
           name="searchQuery"
           value={searchQuery}
           onChange={handleInputChange}
-          autoFocus="true"
+          className={styles["search-input"]}
+          placeholder="Search..."
         />
       </div>
       <div>
