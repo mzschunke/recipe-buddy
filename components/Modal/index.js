@@ -1,11 +1,5 @@
 import React, { useState } from "react";
-import {
-  Button,
-  Dialog,
-  DialogTitle,
-  DialogContent,
-  DialogActions,
-} from "@mui/material";
+import { Button, Dialog, DialogContent, DialogActions } from "@mui/material";
 import RecipeIngredients from "../RecipeIngredients";
 import RecipeInstructions from "../RecipeInstructions";
 import styles from "./Modal.module.css";
@@ -25,11 +19,11 @@ export default function Modal({ recipe }) {
 
   return (
     <div>
-      <Button variant="text" onClick={handleClickOpen}>
-        Show recipe
-      </Button>
+      <button className={styles["button"]} onClick={handleClickOpen}>
+        Ingredients
+      </button>
       <Dialog open={open} onClose={handleClose} scroll="paper" maxWidth="sm">
-        <DialogTitle>{recipe.strMeal}</DialogTitle>
+        <h2 className={styles["title"]}>{recipe.strMeal}</h2>
         <DialogContent dividers>
           <RecipeIngredients
             recipe={recipe}
