@@ -20,7 +20,7 @@ export default function Modal({ recipe }) {
   return (
     <div>
       <button className={styles["button"]} onClick={handleClickOpen}>
-        Ingredients
+        Show Ingredients
       </button>
       <Dialog open={open} onClose={handleClose} scroll="paper" maxWidth="sm">
         <h2 className={styles["title"]}>{recipe.strMeal}</h2>

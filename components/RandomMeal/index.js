@@ -4,7 +4,6 @@ import { useState } from "react";
 import useSWR from "swr";
 import styles from "./RandomMeal.module.css";
 import Loader from "../Loader";
-import { Button } from "@mui/material";
 import RecipeCard from "../RecipeCard";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
@@ -38,7 +37,7 @@ export default function RandomMeal() {
         <div className={styles["random-recipe-container"]}>
           <RecipeCard recipe={recipe} />
           <button className={styles["button"]} onClick={handleRefresh}>
-            Next Recipe 🪄
+            Random Recipe 🪄
           </button>
         </div>
       </>
