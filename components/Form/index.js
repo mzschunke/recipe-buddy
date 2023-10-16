@@ -167,7 +167,7 @@ export default function Form({ formName, defaultData, onSubmit }) {
         Add more ingredients...
       </button>
       <button type="submit" className={styles["button"]}>
-        {defaultData ? "Update recipe" : "Add recipe"}
+        {defaultData ? "Update Recipe" : "Add Recipe"}
       </button>
     </form>
   );

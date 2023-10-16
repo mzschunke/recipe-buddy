@@ -9,7 +9,7 @@ export default async function RecipePage() {
       <HomeButton />
       <RecipeList />
       <Link href="/recipes/create" className={styles["add-button"]}>
-        add recipe
+        Add Recipe
       </Link>
     </>
   );

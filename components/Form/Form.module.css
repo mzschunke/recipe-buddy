@@ -48,16 +48,13 @@
   font-family: inherit;
   font-weight: bold;
   font-size: 1.3rem;
+  border: none;
+  color: white;
+  box-shadow: 1px 2px 2px black;
 }
 
 .more-button {
-  background-color: lightsalmon;
-  padding: 0.8rem 1.5rem;
-  border-radius: 0.6rem;
-  margin-bottom: 1rem;
-  color: black;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 1.3rem;
-  font-family: inherit;
+  composes: button;
+  background-color: lightcoral;
+  margin-bottom: 0.5rem;
 }
