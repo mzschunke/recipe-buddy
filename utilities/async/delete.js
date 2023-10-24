@@ -5,7 +5,7 @@ async function deleteRecipeDB(recipe, id) {
     .then((response) => {
       if (response.ok) {
         Swal.fire({
-          text: "Recipe has been deleted.",
+          text: "Recipe has been deleted",
           icon: "warning",
         });
       } else {
