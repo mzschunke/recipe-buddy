@@ -33,7 +33,7 @@ async function editRecipeDB(recipe, id) {
       throw new Error("Something went wrong!");
     }
     Swal.fire({
-      text: "Recipe edited successfully",
+      text: "Recipe updated successfully",
       icon: "success",
     });
   } catch (error) {
