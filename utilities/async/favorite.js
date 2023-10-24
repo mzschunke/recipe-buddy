@@ -1,3 +1,5 @@
+import Swal from "sweetalert2";
+
 async function addToFavorites(recipe) {
   try {
     const ingredients = [];
@@ -31,10 +33,16 @@ async function addToFavorites(recipe) {
     });
 
     if (!response.ok) {
-      alert("This Recipe is already in your favorites!");
+      Swal.fire({
+        text: "This recipe is already among your favorites...",
+        icon: "info",
+      });
       throw new Error("Failed to add recipe");
     } else {
-      alert("Recipe has been added to your favorites");
+      Swal.fire({
+        text: "Recipe has been added to your favorites",
+        icon: "success",
+      });
     }
   } catch (error) {
     console.error(error);
