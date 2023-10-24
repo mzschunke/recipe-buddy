@@ -1,3 +1,5 @@
+import Swal from "sweetalert2";
+
 async function editRecipeDB(recipe, id) {
   try {
     const ingredients = [];
@@ -30,7 +32,10 @@ async function editRecipeDB(recipe, id) {
     if (!response.ok) {
       throw new Error("Something went wrong!");
     }
-    alert("Recipe edited successfully!");
+    Swal.fire({
+      text: "Recipe updated successfully",
+      icon: "success",
+    });
   } catch (error) {
     console.error(error);
   }
