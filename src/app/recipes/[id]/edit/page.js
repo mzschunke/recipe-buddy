@@ -6,6 +6,8 @@ import { useRouter } from "next/navigation";
 import styles from "./Edit.module.css";
 import Loader from "../../../../../components/Loader";
 import BackButton from "../../../../../components/BackButton";
+import { ProtectedRoute } from "../../../../../components/ProtectedRoute";
+import { Fallback } from "../../../../../components/Fallback";
 import { handleEditRecipe } from "../../../../../utilities/async/edit";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
@@ -24,7 +26,7 @@ export default function EditPage({ params }) {
   if (isLoading) return <Loader />;
 
   return (
-    <>
+    <ProtectedRoute fallback={<Fallback />}>
       <BackButton />
       <div className={styles["header-container"]}>
         <h2 className={styles["title"]}>Edit Recipe</h2>
@@ -38,6 +40,6 @@ export default function EditPage({ params }) {
       ) : (
         <p>No data available</p>
       )}
-    </>
+    </ProtectedRoute>
   );
 }
