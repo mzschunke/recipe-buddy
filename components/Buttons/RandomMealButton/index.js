@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./RandomMealButton.module.css";
-import dices from "../../lib/dices.png";
+import dices from "../../../lib/dices.png";
 
 export default function RandomMealButton() {
   return (

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import RecipeList from "../../../components/RecipeList";
 import styles from "./RecipePage.module.css";
-import HomeButton from "../../../components/HomeButton";
+import HomeButton from "../../../components/Buttons/HomeButton";
 import { ProtectedRoute } from "../../../components/ProtectedRoute";
 import { Fallback } from "../../../components/Fallback";
 

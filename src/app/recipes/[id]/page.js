@@ -9,7 +9,7 @@ import RecipeInstructions from "../../../../components/RecipeInstructions";
 import { ProtectedRoute } from "../../../../components/ProtectedRoute";
 import { Fallback } from "../../../../components/Fallback";
 import Loader from "../../../../components/Loader";
-import BackButton from "../../../../components/BackButton";
+import BackButton from "../../../../components/Buttons/BackButton";
 import useRecipeData from "../../../../utilities/hooks/fetchdata";
 import { handleDeleteRecipe } from "../../../../utilities/async/delete";
 import sample from "../../../../lib/sample.jpg";

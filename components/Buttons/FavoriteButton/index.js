@@ -1,6 +1,6 @@
 import styles from "./FavoriteButton.module.css";
 import { BsFillSuitHeartFill } from "react-icons/bs";
-import { handleAddToFavorites } from "../../utilities/async/favorite.js";
+import { handleAddToFavorites } from "../../../utilities/async/favorite.js";
 
 export default function FavoriteButton({ recipe }) {
   return (

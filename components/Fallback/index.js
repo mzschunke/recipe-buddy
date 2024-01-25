@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import styles from "./Fallback.module.css";
-import SignOutButton from "../SignInButton";
+import SignInButton from "../Buttons/SignInButton";
 
 export function Fallback() {
   return (
@@ -12,7 +12,7 @@ export function Fallback() {
       </Link>
       <div className={styles["login-message"]}>
         <h2>Please Sign In to continue:</h2>
-        <SignOutButton />
+        <SignInButton />
       </div>
     </div>
   );

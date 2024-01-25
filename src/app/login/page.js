@@ -2,11 +2,11 @@
 
 import { useSession } from "next-auth/react";
 import Image from "next/image";
-import RecipesButton from "../../../components/MyRecipesButton";
-import RandomMealButton from "../../../components/RandomMealButton";
+import RecipesButton from "../../../components/Buttons/MyRecipesButton";
+import RandomMealButton from "../../../components/Buttons/RandomMealButton";
 import Search from "../../../components/Search";
 import styles from "./Login.module.css";
-import SignOutButton from "../../../components/SignOutButton";
+import SignOutButton from "../../../components/Buttons/SignOutButton";
 
 export default function Login() {
   const { data: session } = useSession({ required: true });

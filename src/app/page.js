@@ -2,10 +2,10 @@
 
 import Search from "../../components/Search";
 import styles from "./Homepage.module.css";
-import RecipesButton from "../../components/MyRecipesButton";
-import RandomMealButton from "../../components/RandomMealButton";
-import SignOutButton from "../../components/SignOutButton";
-import SignInButton from "../../components/SignInButton";
+import RecipesButton from "../../components/Buttons/MyRecipesButton";
+import RandomMealButton from "../../components/Buttons/RandomMealButton";
+import SignOutButton from "../../components/Buttons/SignOutButton";
+import SignInButton from "../../components/Buttons/SignInButton";
 
 export default function Home() {
   return (

@@ -5,7 +5,7 @@ import Form from "../../../../../components/Form";
 import { useRouter } from "next/navigation";
 import styles from "./Edit.module.css";
 import Loader from "../../../../../components/Loader";
-import BackButton from "../../../../../components/BackButton";
+import BackButton from "../../../../../components/Buttons/BackButton";
 import { ProtectedRoute } from "../../../../../components/ProtectedRoute";
 import { Fallback } from "../../../../../components/Fallback";
 import { handleEditRecipe } from "../../../../../utilities/async/edit";
