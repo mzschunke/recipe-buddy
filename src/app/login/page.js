@@ -20,6 +20,7 @@ export default function Login() {
             width={50}
             height={50}
             alt="Picture of current user"
+            style={{ borderRadius: "50%", border: "2px solid lightseagreen" }}
           />
           <SignOutButton />
         </div>
