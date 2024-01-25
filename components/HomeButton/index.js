@@ -5,7 +5,7 @@ import { BiHome } from "react-icons/bi";
 export default async function HomeButton() {
   return (
     <>
-      <Link href="/" className={styles["home-button"]}>
+      <Link href="/login" className={styles["home-button"]}>
         <BiHome size={35} color="lightseagreen" />
       </Link>
     </>

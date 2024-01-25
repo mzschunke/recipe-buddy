@@ -1,10 +1,13 @@
-import Link from "next/link";
 import styles from "./SignOutButton.module.css";
+import { signOut } from "next-auth/react";
 
 export default function SignOutButton() {
   return (
-    <Link className={styles["sign-out"]} href="/api/auth/signout">
-      Sign out
-    </Link>
+    <button
+      className={styles["sign-out"]}
+      onClick={() => signOut({ callbackUrl: "http://localhost:3000/" })}
+    >
+      Sign Out
+    </button>
   );
 }

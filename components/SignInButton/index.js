@@ -1,10 +1,15 @@
-import Link from "next/link";
 import styles from "./SignInButton.module.css";
+import { signIn } from "next-auth/react";
 
 export default function SignInButton() {
   return (
-    <Link className={styles["sign-in"]} href="/api/auth/signin">
-      Sign in
-    </Link>
+    <button
+      className={styles["sign-in"]}
+      onClick={() =>
+        signIn(undefined, { callbackUrl: "http://localhost:3000/login" })
+      }
+    >
+      Sign In
+    </button>
   );
 }

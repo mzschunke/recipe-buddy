@@ -13,8 +13,8 @@ export default function Home() {
       <div className={styles["header-container"]}>
         <h1 className={styles["title"]}>Recipe Buddy</h1>
       </div>
-      <SignInButton />
-      <SignOutButton />
+      {/* <SignInButton />
+      <SignOutButton /> */}
       <div className={styles["menu-container"]}>
         <RecipesButton />
         <RandomMealButton />

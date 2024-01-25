@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import styles from "./Fallback.module.css";
+import SignOutButton from "../SignInButton";
 
 export function Fallback() {
   return (
@@ -8,8 +11,8 @@ export function Fallback() {
         <h1 className={styles["title"]}>Recipe Buddy</h1>
       </Link>
       <div className={styles["login-message"]}>
-        <h2>You are not logged in 😕</h2>
-        <Link href="/api/auth/signin">Sign in</Link>
+        <h2>Please Sign In to continue:</h2>
+        <SignOutButton />
       </div>
     </div>
   );
