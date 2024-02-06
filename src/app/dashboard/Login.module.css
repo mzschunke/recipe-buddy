@@ -18,3 +18,15 @@
   gap: 10%;
   padding: 1rem;
 }
+
+.header-container {
+  display: flex;
+  justify-content: center;
+}
+
+.title {
+  font-size: 3.6rem;
+  padding: 1rem;
+  color: lightseagreen;
+  text-decoration-line: underline;
+}

@@ -13,6 +13,7 @@
     "@emotion/styled": "^11.11.0",
     "@fontsource/ubuntu": "^5.0.8",
     "@mui/material": "^5.14.10",
+    "bcrypt": "^5.1.1",
     "cloudinary": "^1.41.0",
     "eslint": "8.46.0",
     "eslint-config-next": "13.4.13",

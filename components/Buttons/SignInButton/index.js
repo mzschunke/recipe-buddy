@@ -3,7 +3,7 @@ import { signIn } from "next-auth/react";
 
 export default function SignInButton() {
   function handleSignIn() {
-    signIn(undefined, { callbackUrl: "http://localhost:3000/login" });
+    signIn(undefined, { callbackUrl: "http://localhost:3000/dashboard" });
   }
 
   return (
