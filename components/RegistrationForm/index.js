@@ -53,7 +53,7 @@ export default function RegistrationForm() {
 
   return (
     <>
-      <h1>Not registered yet? Register here:</h1>
+      <h2>No Account? Register here:</h2>
       <form onSubmit={handleSubmit} className={styles["registration-form"]}>
         <label htmlFor="name">Name:</label>
         <input

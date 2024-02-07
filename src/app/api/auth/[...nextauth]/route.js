@@ -8,10 +8,6 @@ import bcrypt from "bcrypt";
 export const authOptions = {
   secret: process.env.NEXTAUTH_SECRET,
   providers: [
-    GithubProvider({
-      clientId: process.env.GITHUB_ID,
-      clientSecret: process.env.GITHUB_SECRET,
-    }),
     CredentialsProvider({
       name: "Credentials",
       credentials: {
@@ -35,6 +31,10 @@ export const authOptions = {
           console.log(error);
         }
       },
+    }),
+    GithubProvider({
+      clientId: process.env.GITHUB_ID,
+      clientSecret: process.env.GITHUB_SECRET,
     }),
   ],
   sesssion: {

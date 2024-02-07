@@ -6,8 +6,12 @@ import RecipesButton from "../../components/Buttons/MyRecipesButton";
 import RandomMealButton from "../../components/Buttons/RandomMealButton";
 import SignOutButton from "../../components/Buttons/SignOutButton";
 import SignInButton from "../../components/Buttons/SignInButton";
+import { useSession } from "next-auth/react";
+import Dashboard from "./dashboard/page";
 
 export default function Home() {
+  const { data: session } = useSession();
+  if (session) return <Dashboard />;
   return (
     <>
       <div className={styles["header-container"]}>

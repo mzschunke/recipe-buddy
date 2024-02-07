@@ -32,7 +32,7 @@ export default function Search() {
           value={searchQuery}
           onChange={handleInputChange}
           className={styles["search-input"]}
-          placeholder="Search..."
+          placeholder="Search for a recipe..."
         />
       </div>
       <div>
