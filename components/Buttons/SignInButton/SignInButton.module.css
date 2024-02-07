@@ -5,6 +5,7 @@
   border-radius: 5px;
   border: 2px solid lightseagreen;
   background-color: rgb(255, 255, 255, 0.6);
+  box-shadow: 1px 1px;
   font-family: inherit;
   cursor: pointer;
 }
