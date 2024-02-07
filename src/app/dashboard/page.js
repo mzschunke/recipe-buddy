@@ -17,14 +17,19 @@ export default function Dashboard() {
         <div className={styles["header-container"]}>
           <h1 className={styles["title"]}>Recipe Buddy</h1>
           <div className={styles["profile-container"]}>
-            <Image
-              src={session?.user?.image || avatar}
-              width={50}
-              height={50}
-              alt="Picture of current user"
-              style={{ borderRadius: "50%", border: "2px solid lightseagreen" }}
-            />
-            <SignOutButton />
+            <div className={styles["column-container"]}>
+              <Image
+                src={session?.user?.image || avatar}
+                width={65}
+                height={65}
+                alt="Picture of current user"
+                style={{
+                  borderRadius: "50%",
+                  border: "2px solid lightseagreen",
+                }}
+              />
+              <SignOutButton />
+            </div>
           </div>
         </div>
         <p className={styles["welcome-message"]}>
