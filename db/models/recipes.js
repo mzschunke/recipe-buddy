@@ -14,6 +14,11 @@ const recipeSchema = new Schema({
       measure: { type: String, required: false },
     },
   ],
+  createdBy: {
+    type: Schema.Types.ObjectId,
+    ref: "User",
+    required: true,
+  },
 });
 
 const Recipes =

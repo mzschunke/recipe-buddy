@@ -26,9 +26,9 @@ export const authOptions = {
           if (!isMatch) {
             return null;
           }
-          return user;
+          return { id: user._id, name: user.name, email: user.email };
         } catch (error) {
-          console.log(error);
+          console.error(error);
         }
       },
     }),
@@ -37,8 +37,13 @@ export const authOptions = {
       clientSecret: process.env.GITHUB_SECRET,
     }),
   ],
-  sesssion: {
-    strategy: "jwt",
+  callbacks: {
+    async session({ session, token }) {
+      if (token) {
+        session.user.id = token.sub;
+      }
+      return session;
+    },
   },
 };
 

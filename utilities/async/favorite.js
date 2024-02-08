@@ -1,6 +1,6 @@
 import Swal from "sweetalert2";
 
-async function addToFavorites(recipe) {
+async function addToFavorites(recipe, userID) {
   try {
     const ingredients = [];
 
@@ -22,6 +22,7 @@ async function addToFavorites(recipe) {
       strMealThumb: recipe.strMealThumb,
       strInstructions: recipe.strInstructions,
       ingredients: ingredients,
+      createdBy: userID,
     };
 
     const response = await fetch("/api/recipes", {
@@ -49,6 +50,6 @@ async function addToFavorites(recipe) {
   }
 }
 
-export const handleAddToFavorites = async (recipe) => {
-  await addToFavorites(recipe);
+export const handleAddToFavorites = async (recipe, userID) => {
+  await addToFavorites(recipe, userID);
 };
