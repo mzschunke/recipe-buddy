@@ -49,6 +49,21 @@ export async function POST(request) {
   }
   try {
     const recipeData = await request.json();
+    const existingRecipe = await Recipes.findOne({
+      createdBy: new ObjectId(session.user.id),
+      strMeal: recipeData.strMeal,
+    });
+    if (existingRecipe) {
+      return new Response(
+        JSON.stringify({ message: "Recipe already exists" }),
+        {
+          status: 400,
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+    }
     await Recipes.create(recipeData);
     return new Response(JSON.stringify({ status: "Recipe added! =)" }), {
       status: 201,
@@ -57,20 +72,14 @@ export async function POST(request) {
       },
     });
   } catch (error) {
-    if (error.code === 11000) {
-      return new Response(JSON.stringify({ error: "Recipe already exists" }), {
-        status: 400,
+    console.error("Error adding recipe", error);
+    {
+      return new Response(JSON.stringify({ error: "Failed to add recipe." }), {
+        status: 500,
         headers: {
           "Content-Type": "application/json",
         },
       });
     }
-    console.error(error);
-    return new Response(JSON.stringify({ error: error.message }), {
-      status: 400,
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
   }
 }

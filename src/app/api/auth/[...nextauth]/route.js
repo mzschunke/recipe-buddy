@@ -41,6 +41,30 @@ export const authOptions = {
     async session({ session, token }) {
       if (token) {
         session.user.id = token.sub;
+        if (session.user.id.length < 24) {
+          try {
+            const email = token.email;
+            const existingUser = await User.findOne({ email }).select("_id");
+            if (existingUser) {
+              session.user.id = existingUser._id;
+            }
+            if (!existingUser) {
+              const randomPassword = generateRandomPassword();
+              const hashedPassword = bcrypt.hashSync(randomPassword, 10);
+              const newUser = await User.create({
+                name: token.name,
+                email: token.email,
+                password: hashedPassword,
+              });
+              session.user.id = newUser._id;
+            }
+          } catch (error) {
+            console.log("*** Error: ***", error);
+            return res.status(500).json({
+              error: "An unexpected error occurred. Please try again later.",
+            });
+          }
+        }
       }
       return session;
     },
