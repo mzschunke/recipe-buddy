@@ -1,9 +1,12 @@
 import NextAuth from "next-auth/next";
 import GithubProvider from "next-auth/providers/github";
+import GoogleProvider from "next-auth/providers/google";
 import CredentialsProvider from "next-auth/providers/credentials";
 import dbConnect from "../../../../../db/connect";
 import User from "../../../../../db/models/user";
 import bcrypt from "bcrypt";
+import mongoose from "mongoose";
+import { generateRandomPassword } from "../../../../../utilities/helper/randompassword";
 
 export const authOptions = {
   secret: process.env.NEXTAUTH_SECRET,
@@ -36,6 +39,10 @@ export const authOptions = {
       clientId: process.env.GITHUB_ID,
       clientSecret: process.env.GITHUB_SECRET,
     }),
+    GoogleProvider({
+      clientId: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+    }),
   ],
   callbacks: {
     async session({ session, token }) {
@@ -49,9 +56,9 @@ export const authOptions = {
               session.user.id = existingUser._id;
             }
             if (!existingUser) {
-              const randomPassword = generateRandomPassword();
-              const hashedPassword = bcrypt.hashSync(randomPassword, 10);
+              const hashedPassword = generateRandomPassword();
               const newUser = await User.create({
+                _id: new mongoose.Types.ObjectId(),
                 name: token.name,
                 email: token.email,
                 password: hashedPassword,
