@@ -64,7 +64,7 @@ export default function RegistrationForm() {
         ></input>
         <label htmlFor="email">E-mail address:</label>
         <input
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={(e) => setEmail(e.target.value.toLowerCase())}
           type="email"
           name="email"
           id="email"
