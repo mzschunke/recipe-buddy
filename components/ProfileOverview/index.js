@@ -4,9 +4,12 @@ import styles from "./ProfileOverview.module.css";
 import Image from "next/image";
 import avatar from "../../lib/avatar.png";
 import { useSession } from "next-auth/react";
+import { handleDeleteAccount } from "../../utilities/async/user/delete-account";
 
 export default function ProfileOverview() {
   const { data: session } = useSession();
+  const userID = session?.user?.id;
+
   if (session)
     return (
       <>
@@ -25,10 +28,13 @@ export default function ProfileOverview() {
               Username: {session.user.name}
             </p>
             <p className={styles["profile-email"]}>
-              E-mail: {session.user.email}
+              E-Mail: {session.user.email}
             </p>
-            <button className={styles["delete-profile"]}>
-              Account löschen
+            <button
+              className={styles["delete-profile"]}
+              onClick={() => handleDeleteAccount(userID)}
+            >
+              Delete Account
             </button>
           </div>
         </div>
