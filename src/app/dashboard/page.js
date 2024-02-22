@@ -8,6 +8,7 @@ import Search from "../../../components/Search";
 import styles from "./dashboard.module.css";
 import SignOutButton from "../../../components/Buttons/SignOutButton";
 import avatar from "../../../lib/avatar.png";
+import Link from "next/link";
 
 export default function Dashboard() {
   const { data: session } = useSession({ required: true });
@@ -18,16 +19,18 @@ export default function Dashboard() {
           <h1 className={styles["title"]}>Recipe Buddy</h1>
           <div className={styles["profile-container"]}>
             <div className={styles["column-container"]}>
-              <Image
-                src={session?.user?.image || avatar}
-                width={65}
-                height={65}
-                alt="Picture of current user"
-                style={{
-                  borderRadius: "50%",
-                  border: "2px solid lightseagreen",
-                }}
-              />
+              <Link href="/profile">
+                <Image
+                  src={session?.user?.image || avatar}
+                  width={65}
+                  height={65}
+                  alt="Picture of current user"
+                  style={{
+                    borderRadius: "50%",
+                    border: "2px solid lightseagreen",
+                  }}
+                />
+              </Link>
               <SignOutButton />
             </div>
           </div>
