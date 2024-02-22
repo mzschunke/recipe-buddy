@@ -44,7 +44,7 @@
 .button-container {
   display: flex;
   gap: 1rem;
-  padding-bottom: 1rem;
+  padding-bottom: 2.5rem;
 }
 
 .edit-button {

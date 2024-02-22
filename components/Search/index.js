@@ -35,6 +35,7 @@ export default function Search() {
           placeholder="Search for a recipe..."
         />
       </div>
+
       <div>
         {isValidating && <Loader />}
         {data && data.meals === null ? (
