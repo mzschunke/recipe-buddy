@@ -1,16 +1,9 @@
-.headline {
-  text-align: center;
-  color: lightseagreen;
-  text-decoration-line: underline;
-  font-size: 3rem;
-  margin: 1.5rem 0;
-}
-
 .profile-overview {
   display: flex;
   justify-content: center;
-  padding: 16px;
+  padding: 20px;
   gap: 25px;
+  margin-top: 20px;
 }
 
 .profile-picture {
@@ -29,9 +22,21 @@
   font-weight: 800;
 }
 
+@media only screen and (max-width: 600px) {
+  .profile-name {
+    font-size: 1rem;
+  }
+}
+
 .profile-email {
   font-size: 1.4rem;
   font-weight: 800;
+}
+
+@media only screen and (max-width: 600px) {
+  .profile-email {
+    font-size: 1rem;
+  }
 }
 
 .delete-profile {

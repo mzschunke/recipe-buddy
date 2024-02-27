@@ -1,13 +1,13 @@
-.sign-out {
-  border: none;
-  background: transparent;
-  font-family: inherit;
+.profile-button {
+  font-family: oswald;
   cursor: pointer;
   font-size: 0.9rem;
+  padding: 0;
 }
 
-.sign-out-container {
+.profile-container {
   display: grid;
   grid-template-columns: 1fr 3fr;
   align-items: center;
+  gap: 10px;
 }

@@ -2,7 +2,7 @@
 
 import styles from "./ProfileOverview.module.css";
 import Image from "next/image";
-import avatar from "../../lib/avatar.png";
+import Chef from "../../lib/chef.png";
 import { useSession } from "next-auth/react";
 import { handleDeleteAccount } from "../../utilities/async/user/delete-account";
 
@@ -13,14 +13,18 @@ export default function ProfileOverview() {
   if (session)
     return (
       <>
-        <h1 className={styles["headline"]}>Account Info</h1>
         <div className={styles["profile-overview"]}>
           <div className={styles["profile-picture"]}>
             <Image
-              src={session?.user?.image || avatar}
-              width={50}
-              height={50}
+              src={session?.user?.image || Chef}
+              width={65}
+              height={65}
               alt="Picture of current user"
+              style={{
+                borderRadius: "50%",
+                border: "3px solid lightsalmon",
+                padding: "2px",
+              }}
             />
           </div>
           <div className={styles["profile-info"]}>

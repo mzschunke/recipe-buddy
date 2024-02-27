@@ -27,23 +27,3 @@
     font-size: 4rem;
   }
 }
-
-.back-button {
-  position: fixed;
-  top: 25px;
-  right: 25px;
-}
-
-.add-button {
-  position: fixed;
-  bottom: 25px;
-  right: 25px;
-  background-color: lightseagreen;
-  padding: 0.8rem 1rem;
-  border-radius: 0.6rem;
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 1.5rem;
-  box-shadow: 1px 2px 2px black;
-}

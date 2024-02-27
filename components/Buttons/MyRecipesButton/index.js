@@ -13,7 +13,7 @@ export default function RecipesButton() {
         height={60}
         alt="Picture of my recipes"
       ></Image>
-      <p className={styles["link-text"]}>My recipes</p>
+      <p className={styles["link-text"]}>My Recipes</p>
     </Link>
   );
 }

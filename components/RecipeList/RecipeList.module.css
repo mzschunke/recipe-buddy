@@ -36,14 +36,6 @@
   text-decoration: none;
 }
 
-.headline {
-  text-align: center;
-  color: lightseagreen;
-  text-decoration-line: underline;
-  font-size: 3rem;
-  margin-bottom: 1.5rem;
-}
-
 .no-result {
   display: flex;
   text-align: center;

@@ -28,7 +28,6 @@ export default function RecipeList() {
   const { data } = useSWR("/api/recipes", fetcher);
   return (
     <div className={styles["overview-container"]}>
-      <p className={styles["headline"]}>My recipes</p>
       {data && data.message === "No recipes found for this user" ? (
         <div className={styles["no-result"]}>
           You currently have no saved recipes 🧁
