@@ -1,0 +1,52 @@
+.profile-overview {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  gap: 25px;
+  margin-top: 20px;
+}
+
+.profile-picture {
+  align-self: flex-start;
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  font-family: oswald;
+}
+
+.profile-name {
+  font-size: 1.4rem;
+  font-weight: 800;
+}
+
+@media only screen and (max-width: 600px) {
+  .profile-name {
+    font-size: 1rem;
+  }
+}
+
+.profile-email {
+  font-size: 1.4rem;
+  font-weight: 800;
+}
+
+@media only screen and (max-width: 600px) {
+  .profile-email {
+    font-size: 1rem;
+  }
+}
+
+.delete-profile {
+  background-color: lightcoral;
+  padding: 0.8rem 0.5rem;
+  border-radius: 0.6rem;
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1rem;
+  box-shadow: 1px 1px black;
+  color: white;
+}

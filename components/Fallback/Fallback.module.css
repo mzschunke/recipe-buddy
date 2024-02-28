@@ -1,0 +1,24 @@
+.fallback-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.title {
+  font-size: 3.6rem;
+  padding: 1rem;
+  color: lightseagreen;
+  text-decoration-line: underline;
+}
+
+.login-message {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 0 2rem;
+  border-radius: 5px;
+}

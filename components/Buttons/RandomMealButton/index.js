@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./RandomMealButton.module.css";
-import dices from "../../lib/dices.png";
+import dices from "../../../lib/dices.png";
 
 export default function RandomMealButton() {
   return (
@@ -15,7 +15,7 @@ export default function RandomMealButton() {
         height={70}
         alt="Picture of dices"
       ></Image>
-      <p className={styles["link-text"]}>Random recipe</p>
+      <p className={styles["link-text"]}>Random Recipe</p>
     </Link>
   );
 }

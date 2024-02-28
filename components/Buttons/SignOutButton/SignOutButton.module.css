@@ -1,0 +1,13 @@
+.sign-out {
+  border: none;
+  background: transparent;
+  font-family: inherit;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.sign-out-container {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  align-items: center;
+}

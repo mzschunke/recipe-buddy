@@ -1,9 +1,15 @@
 import dbConnect from "../../../../../db/connect";
 import Recipes from "../../../../../db/models/recipes";
+import { getServerSession } from "next-auth/next";
+import { authOptions } from "../../auth/[...nextauth]/route";
 
 await dbConnect();
 
 export async function DELETE(req, { params }) {
+  const session = await getServerSession(authOptions);
+  if (!session) {
+    return NextResponse.json({ message: "You are not logged in." });
+  }
   try {
     const id = params.id;
     if (!id) {
@@ -31,12 +37,15 @@ export async function DELETE(req, { params }) {
 }
 
 export async function GET(req, { params }) {
+  const session = await getServerSession(authOptions);
+  if (!session) {
+    return NextResponse.json({ message: "You are not logged in." });
+  }
   try {
     const id = params.id;
     if (!id) {
       return;
     }
-
     const recipes = await Recipes.findById(id);
     return new Response(JSON.stringify(recipes), {
       headers: {
@@ -44,14 +53,6 @@ export async function GET(req, { params }) {
       },
     });
   } catch (error) {
-    if (error.code === 11000) {
-      return new Response(JSON.stringify({ error: "Recipe already exists" }), {
-        status: 400,
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-    }
     console.error(error);
     return new Response(JSON.stringify({ error: "Failed to fetch data" }), {
       status: 500,
@@ -63,6 +64,10 @@ export async function GET(req, { params }) {
 }
 
 export async function PUT(req, { params }) {
+  const session = await getServerSession(authOptions);
+  if (!session) {
+    return NextResponse.json({ message: "You are not logged in." });
+  }
   try {
     const id = params.id;
     if (!id) {

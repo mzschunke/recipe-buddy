@@ -1,5 +1,5 @@
 import styles from "./RecipeCard.module.css";
-import FavoriteButton from "../FavoriteButton";
+import FavoriteButton from "../Buttons/FavoriteButton";
 import Modal from "../Modal";
 import Image from "next/image";
 import sample from "../../lib/sample.jpg";

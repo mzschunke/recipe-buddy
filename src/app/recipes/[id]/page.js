@@ -6,8 +6,10 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import RecipeIngredients from "../../../../components/RecipeIngredients";
 import RecipeInstructions from "../../../../components/RecipeInstructions";
+import { ProtectedRoute } from "../../../../components/ProtectedRoute";
+import { Fallback } from "../../../../components/Fallback";
 import Loader from "../../../../components/Loader";
-import BackButton from "../../../../components/BackButton";
+import BackButton from "../../../../components/Buttons/BackButton";
 import useRecipeData from "../../../../utilities/hooks/fetchdata";
 import { handleDeleteRecipe } from "../../../../utilities/async/delete";
 import sample from "../../../../lib/sample.jpg";
@@ -23,7 +25,7 @@ export default function RecipePage({ params }) {
   }
 
   return (
-    <>
+    <ProtectedRoute fallback={<Fallback />}>
       <BackButton />
       <div className={styles["recipe-container"]}>
         {currentRecipe ? (
@@ -74,6 +76,6 @@ export default function RecipePage({ params }) {
           <Loader />
         )}
       </div>
-    </>
+    </ProtectedRoute>
   );
 }

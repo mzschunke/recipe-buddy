@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import styles from "./MyRecipesButton.module.css";
-import recipe from "../../lib/recipe.png";
+import recipe from "../../../lib/recipe.png";
 
 export default function RecipesButton() {
   return (
@@ -13,7 +13,7 @@ export default function RecipesButton() {
         height={60}
         alt="Picture of my recipes"
       ></Image>
-      <p className={styles["link-text"]}>My recipes</p>
+      <p className={styles["link-text"]}>My Recipes</p>
     </Link>
   );
 }
