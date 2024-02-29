@@ -5,10 +5,7 @@ import Logout from "../../../lib/logout.png";
 
 export default function SignOutButton() {
   function handleSignOut() {
-    const userConfirmed = window.confirm("Are you sure you want to sign out?");
-    if (userConfirmed) {
-      signOut({ callbackUrl: "https://recipe-buddy-ten.vercel.app/" });
-    }
+    signOut({ callbackUrl: "http://localhost:3000/" });
   }
 
   return (
