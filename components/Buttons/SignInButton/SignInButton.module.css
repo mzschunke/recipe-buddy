@@ -1,13 +1,11 @@
 .sign-in {
-  height: 35px;
-  width: 50px;
-  padding: 4px;
-  margin: 4px;
+  padding: 0.5rem 1rem;
   border-radius: 5px;
   background-color: lightsalmon;
   color: white;
   border: none;
-  box-shadow: 1px 1px 1px black;
+  box-shadow: 1px 2px 2px black;
+  font-size: 16px;
   font-family: inherit;
   font-weight: bold;
   cursor: pointer;

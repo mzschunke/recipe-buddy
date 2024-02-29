@@ -14,8 +14,8 @@ export function Fallback() {
       <div className={styles["login-message"]}>
         <h2>You need to be signed in to continue.</h2>
         <SignInButton />
-        <RegistrationForm />
       </div>
+      <RegistrationForm />
     </div>
   );
 }

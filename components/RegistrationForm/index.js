@@ -76,7 +76,9 @@ export default function RegistrationForm() {
           name="password"
           id="password"
         ></input>
-        <button type="submit">Register</button>
+        <button className={styles["registration-button"]} type="submit">
+          Register
+        </button>
         {error && <p className={styles["error-message"]}>{error}</p>}
       </form>
     </>

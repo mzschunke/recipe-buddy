@@ -36,7 +36,7 @@ export default function RandomMeal() {
       <>
         <div className={styles["random-recipe-container"]}>
           <RecipeCard recipe={recipe} />
-          <button className={styles["button"]} onClick={handleRefresh}>
+          <button className={styles["random-button"]} onClick={handleRefresh}>
             Random Recipe 🪄
           </button>
         </div>
