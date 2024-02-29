@@ -5,7 +5,7 @@ export default function PrivacyButton() {
   return (
     <div className={styles["privacy-container"]}>
       <Link href="/privacy" className={styles["privacy-button"]}>
-        Datenschutzhinweise
+        Datenschutz
       </Link>
     </div>
   );
