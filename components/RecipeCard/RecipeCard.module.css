@@ -16,6 +16,11 @@
   max-width: 400px;
 }
 
+.product-card:hover {
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.9);
+  background-color: rgb(255, 255, 255, 0.9);
+}
+
 .title {
   font-size: 2rem;
   text-align: center;
