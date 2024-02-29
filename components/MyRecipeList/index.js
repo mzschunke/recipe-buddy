@@ -10,8 +10,12 @@ import Loader from "../Loader";
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 const RecipeItem = ({ meal }) => (
-  <Link href={`/recipes/${meal._id}`} className={styles["link"]} key={meal._id}>
-    <li className={styles["product-card"]}>
+  <li className={styles["product-card"]}>
+    <Link
+      href={`/recipes/${meal._id}`}
+      className={styles["link"]}
+      key={meal._id}
+    >
       <Image
         src={meal.strMealThumb || sample}
         width={250}
@@ -19,9 +23,11 @@ const RecipeItem = ({ meal }) => (
         style={{ objectFit: "contain" }}
         alt={meal.strMeal}
       />
-      <h2 className={styles["recipe-name"]}>{meal.strMeal}</h2>
-    </li>
-  </Link>
+    </Link>
+    <h3 className={styles["recipe-name"]}>{meal.strMeal}</h3>
+    <p>Category: {meal.strCategory}</p>
+    <p>Area: {meal.strArea}</p>
+  </li>
 );
 
 export default function RecipeList() {

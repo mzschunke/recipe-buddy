@@ -1,5 +1,5 @@
 import Link from "next/link";
-import RecipeList from "../../../components/RecipeList";
+import RecipeList from "../../../components/MyRecipeList";
 import styles from "./RecipePage.module.css";
 import HomeButton from "../../../components/Buttons/HomeButton";
 import { ProtectedRoute } from "../../../components/ProtectedRoute";
