@@ -15,26 +15,13 @@
   flex-direction: column;
   gap: 25px;
   font-family: oswald;
-}
-
-.profile-name {
   font-size: 1.4rem;
-  font-weight: 800;
+  font-weight: 600;
 }
 
 @media only screen and (max-width: 600px) {
-  .profile-name {
-    font-size: 1rem;
-  }
-}
-
-.profile-email {
-  font-size: 1.4rem;
-  font-weight: 800;
-}
-
-@media only screen and (max-width: 600px) {
-  .profile-email {
+  .profile-info {
+    gap: 12px;
     font-size: 1rem;
   }
 }
