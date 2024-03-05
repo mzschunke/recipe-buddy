@@ -19,6 +19,10 @@
   transition: all 0.2s ease-in-out;
 }
 
+.search-input:focus {
+  border: 5px solid lightsalmon;
+}
+
 .list-container {
   padding: 2rem;
 }
