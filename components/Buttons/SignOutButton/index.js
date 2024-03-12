@@ -5,7 +5,7 @@ import Logout from "../../../lib/logout.png";
 
 export default function SignOutButton() {
   function handleSignOut() {
-    signOut({ callbackUrl: "http://localhost:3000/" });
+    signOut({ callbackUrl: "https://recipe-buddy-ten.vercel.app/" });
   }
 
   return (
