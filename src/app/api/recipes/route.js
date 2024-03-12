@@ -49,6 +49,7 @@ export async function POST(request) {
   }
   try {
     const recipeData = await request.json();
+    recipeData.createdBy = new ObjectId(session.user.id);
     const existingRecipe = await Recipes.findOne({
       createdBy: new ObjectId(session.user.id),
       strMeal: recipeData.strMeal,
