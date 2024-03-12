@@ -1,12 +1,12 @@
 "use client";
 
-import Search from "../../components/Search";
-import styles from "./Homepage.module.css";
-import RecipesButton from "../../components/Buttons/MyRecipesButton";
-import RandomMealButton from "../../components/Buttons/RandomMealButton";
-import SignInButton from "../../components/Buttons/SignInButton";
 import { useSession } from "next-auth/react";
 import Dashboard from "./dashboard/page";
+import SignInButton from "../../components/Buttons/SignInButton";
+import RecipesButton from "../../components/Buttons/MyRecipesButton";
+import RandomMealButton from "../../components/Buttons/RandomMealButton";
+import Search from "../../components/Search";
+import styles from "./Homepage.module.css";
 
 export default function Home() {
   const { data: session } = useSession();

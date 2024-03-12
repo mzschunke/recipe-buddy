@@ -1,10 +1,10 @@
 import Link from "next/link";
-import RecipeList from "../../../components/MyRecipeList";
-import styles from "./RecipePage.module.css";
-import HomeButton from "../../../components/Buttons/HomeButton";
 import { ProtectedRoute } from "../../../components/ProtectedRoute";
 import { Fallback } from "../../../components/Fallback";
+import HomeButton from "../../../components/Buttons/HomeButton";
 import Navigation from "../../../components/Navigation";
+import RecipeList from "../../../components/MyRecipeList";
+import styles from "./RecipePage.module.css";
 
 export default async function RecipePage() {
   return (

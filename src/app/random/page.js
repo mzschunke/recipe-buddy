@@ -1,6 +1,6 @@
-import RandomMeal from "../../../components/RandomMeal";
 import HomeButton from "../../../components/Buttons/HomeButton";
 import Navigation from "../../../components/Navigation";
+import RandomMeal from "../../../components/RandomMeal";
 import styles from "./RandomPage.module.css";
 export default async function RandomPage() {
   return (

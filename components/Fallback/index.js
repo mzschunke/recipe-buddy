@@ -1,9 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import styles from "./Fallback.module.css";
 import SignInButton from "../Buttons/SignInButton";
 import RegistrationForm from "../RegistrationForm";
+import styles from "./Fallback.module.css";
 
 export function Fallback() {
   return (

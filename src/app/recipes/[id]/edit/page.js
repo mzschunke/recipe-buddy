@@ -1,14 +1,14 @@
 "use client";
 
 import useSWR from "swr";
-import Form from "../../../../../components/Form";
 import { useRouter } from "next/navigation";
-import styles from "./Edit.module.css";
-import Loader from "../../../../../components/Loader";
-import BackButton from "../../../../../components/Buttons/BackButton";
+import { handleEditRecipe } from "../../../../../utilities/async/edit";
 import { ProtectedRoute } from "../../../../../components/ProtectedRoute";
 import { Fallback } from "../../../../../components/Fallback";
-import { handleEditRecipe } from "../../../../../utilities/async/edit";
+import BackButton from "../../../../../components/Buttons/BackButton";
+import Form from "../../../../../components/Form";
+import Loader from "../../../../../components/Loader";
+import styles from "./Edit.module.css";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 

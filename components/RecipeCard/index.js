@@ -1,8 +1,8 @@
-import styles from "./RecipeCard.module.css";
+import Image from "next/image";
 import FavoriteButton from "../Buttons/FavoriteButton";
 import Modal from "../Modal";
-import Image from "next/image";
 import sample from "../../lib/sample.jpg";
+import styles from "./RecipeCard.module.css";
 
 export default function RecipeCard({ recipe }) {
   return (

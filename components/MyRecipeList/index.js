@@ -1,11 +1,11 @@
 "use client";
 
-import styles from "./RecipeList.module.css";
 import useSWR from "swr";
 import Image from "next/image";
 import Link from "next/link";
-import sample from "../../lib/sample.jpg";
 import Loader from "../Loader";
+import sample from "../../lib/sample.jpg";
+import styles from "./RecipeList.module.css";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 

@@ -1,9 +1,9 @@
-import dbConnect from "../../../../db/connect";
-import Recipes from "../../../../db/models/recipes";
 import { getServerSession } from "next-auth/next";
-import { authOptions } from "../auth/[...nextauth]/route";
 import { NextResponse } from "next/server";
 import { ObjectId } from "mongodb";
+import { authOptions } from "../auth/[...nextauth]/route";
+import dbConnect from "../../../../db/connect";
+import Recipes from "../../../../db/models/recipes";
 
 await dbConnect();
 export async function GET() {

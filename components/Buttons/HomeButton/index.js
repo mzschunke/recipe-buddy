@@ -1,6 +1,6 @@
 import Link from "next/link";
-import styles from "./HomeButton.module.css";
 import { BiHome } from "react-icons/bi";
+import styles from "./HomeButton.module.css";
 
 export default async function HomeButton() {
   return (

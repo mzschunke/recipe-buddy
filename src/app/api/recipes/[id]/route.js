@@ -1,7 +1,7 @@
-import dbConnect from "../../../../../db/connect";
-import Recipes from "../../../../../db/models/recipes";
 import { getServerSession } from "next-auth/next";
 import { authOptions } from "../../auth/[...nextauth]/route";
+import dbConnect from "../../../../../db/connect";
+import Recipes from "../../../../../db/models/recipes";
 
 await dbConnect();
 

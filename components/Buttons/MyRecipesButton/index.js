@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
-import styles from "./MyRecipesButton.module.css";
 import recipe from "../../../lib/recipe.png";
+import styles from "./MyRecipesButton.module.css";
 
 export default function RecipesButton() {
   return (

@@ -1,8 +1,8 @@
-import "./globals.css";
-import { Oswald } from "next/font/google";
-import { Dancing_Script } from "next/font/google";
 import Provider from "../../components/Provider";
 import PrivacyButton from "../../components/Buttons/PrivacyButton";
+import { Oswald } from "next/font/google";
+import { Dancing_Script } from "next/font/google";
+import "./globals.css";
 
 const oswald = Oswald({ subsets: ["latin"] });
 const dancing_script = Dancing_Script({ subsets: ["latin"] });
