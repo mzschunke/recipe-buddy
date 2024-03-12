@@ -1,11 +1,11 @@
 "use client";
 
-import styles from "./ProfileOverview.module.css";
-import Image from "next/image";
-import Chef from "../../lib/chef.png";
 import { useSession } from "next-auth/react";
 import useSWR from "swr";
+import Image from "next/image";
 import { handleDeleteAccount } from "../../utilities/async/user/delete-account";
+import Chef from "../../lib/chef.png";
+import styles from "./ProfileOverview.module.css";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 

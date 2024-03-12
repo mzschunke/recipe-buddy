@@ -2,11 +2,11 @@ import NextAuth from "next-auth/next";
 import GithubProvider from "next-auth/providers/github";
 import GoogleProvider from "next-auth/providers/google";
 import CredentialsProvider from "next-auth/providers/credentials";
-import dbConnect from "../../../../../db/connect";
-import User from "../../../../../db/models/user";
 import bcrypt from "bcrypt";
 import mongoose from "mongoose";
 import { generateRandomPassword } from "../../../../../utilities/helper/randompassword";
+import dbConnect from "../../../../../db/connect";
+import User from "../../../../../db/models/user";
 
 export const authOptions = {
   secret: process.env.NEXTAUTH_SECRET,

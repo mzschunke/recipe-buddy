@@ -1,7 +1,7 @@
-import styles from "./SignOutButton.module.css";
 import { signOut } from "next-auth/react";
 import Image from "next/image";
 import Logout from "../../../lib/logout.png";
+import styles from "./SignOutButton.module.css";
 
 export default function SignOutButton() {
   function handleSignOut() {

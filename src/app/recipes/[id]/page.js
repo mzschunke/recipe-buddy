@@ -1,18 +1,18 @@
 "use client";
 
-import styles from "./Recipes.module.css";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import RecipeIngredients from "../../../../components/RecipeIngredients";
-import RecipeInstructions from "../../../../components/RecipeInstructions";
-import { ProtectedRoute } from "../../../../components/ProtectedRoute";
-import { Fallback } from "../../../../components/Fallback";
-import Loader from "../../../../components/Loader";
-import BackButton from "../../../../components/Buttons/BackButton";
 import useRecipeData from "../../../../utilities/hooks/fetchdata";
 import { handleDeleteRecipe } from "../../../../utilities/async/delete";
+import { ProtectedRoute } from "../../../../components/ProtectedRoute";
+import { Fallback } from "../../../../components/Fallback";
+import BackButton from "../../../../components/Buttons/BackButton";
+import Loader from "../../../../components/Loader";
+import RecipeIngredients from "../../../../components/RecipeIngredients";
+import RecipeInstructions from "../../../../components/RecipeInstructions";
 import sample from "../../../../lib/sample.jpg";
+import styles from "./Recipes.module.css";
 
 export default function RecipePage({ params }) {
   const id = params.id;

@@ -1,8 +1,8 @@
 "use client";
 
-import styles from "./Form.module.css";
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import styles from "./Form.module.css";
 
 export default function Form({ formName, defaultData, onSubmit }) {
   const [ingredientFields, setIngredientFields] = useState([]);

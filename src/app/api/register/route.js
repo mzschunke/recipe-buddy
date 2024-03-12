@@ -1,7 +1,7 @@
-import dbConnect from "../../../../db/connect";
-import User from "../../../../db/models/user";
 import { NextResponse } from "next/server";
 import bcrypt from "bcrypt";
+import dbConnect from "../../../../db/connect";
+import User from "../../../../db/models/user";
 
 await dbConnect();
 

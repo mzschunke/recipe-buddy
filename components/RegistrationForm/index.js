@@ -1,8 +1,8 @@
 "use client";
 
-import styles from "./RegistrationForm.module.css";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import styles from "./RegistrationForm.module.css";
 
 export default function RegistrationForm() {
   const [name, setName] = useState("");

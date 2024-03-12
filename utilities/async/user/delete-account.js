@@ -1,5 +1,5 @@
-import Swal from "sweetalert2";
 import { signOut } from "next-auth/react";
+import Swal from "sweetalert2";
 
 export async function handleDeleteAccount(userID) {
   Swal.fire({

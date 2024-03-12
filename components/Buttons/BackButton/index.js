@@ -1,6 +1,6 @@
 import Link from "next/link";
-import styles from "./BackButton.module.css";
 import { IoMdArrowRoundBack } from "react-icons/io";
+import styles from "./BackButton.module.css";
 
 export default function BackButton() {
   return (

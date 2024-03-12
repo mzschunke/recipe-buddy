@@ -1,8 +1,8 @@
+import { NextResponse } from "next/server";
+import mongoose from "mongoose";
 import dbConnect from "../../../../db/connect";
 import User from "../../../../db/models/user";
 import Recipes from "../../../../db/models/recipes";
-import { NextResponse } from "next/server";
-import mongoose from "mongoose";
 
 await dbConnect();
 

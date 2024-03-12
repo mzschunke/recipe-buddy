@@ -2,9 +2,9 @@
 
 import { useState } from "react";
 import useSWR from "swr";
-import styles from "./RandomMeal.module.css";
 import Loader from "../Loader";
 import RecipeCard from "../RecipeCard";
+import styles from "./RandomMeal.module.css";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 const URL = "https://www.themealdb.com/api/json/v1/1/random.php";

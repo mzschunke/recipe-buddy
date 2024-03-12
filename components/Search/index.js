@@ -2,9 +2,9 @@
 
 import { useState } from "react";
 import useSWR from "swr";
-import styles from "./Search.module.css";
 import Loader from "../Loader";
 import RecipeCard from "../RecipeCard";
+import styles from "./Search.module.css";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
